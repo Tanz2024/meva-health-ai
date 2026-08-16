@@ -183,6 +183,34 @@ dependency (enforced by `scripts/release_check.py` and
 
 The app opens at `http://localhost:8501` by default.
 
+## Guided Mode and Advanced Mode
+
+The sandbox has two "Experience" modes, both calling the exact same
+deterministic verifier — neither duplicates or reimplements the other:
+
+- **Guided Mode** (the default) — plain-English, for students and
+  non-technical visitors. Category/assertion/value terminology is
+  translated into questions like "What type of information do you want to
+  check?" and clickable claim suggestions like "Peanut allergy is
+  recorded." Suggestions are built by `meva.playground.guided.guided_options()`
+  from that patient's real, currently-visible evidence — including one
+  honest "not recorded" suggestion per category (a value chosen because
+  it's *not* in that patient's record, so the verifier correctly returns
+  UNSUPPORTED for it — no new verifier semantics are introduced to support
+  this). Results use plain-English wording
+  (`GUIDED_RESULT_EXPLANATIONS`); technical fields (resource ID, source
+  tool, raw `MedicalClaim` JSON) are tucked behind a "Show technical
+  details" expander, hidden by default.
+- **Advanced Mode** — the original technical claim builder: explicit
+  Category/Assertion/Value/Attribute fields, the full evidence explorer,
+  and the raw `MedicalClaim` JSON always visible. Intended for developers,
+  researchers, and contributors.
+
+Both modes call `meva.playground.service.verify_claim()` directly — Guided
+Mode's `guided_options()` only ever returns assertion/category
+combinations the deterministic verifier already supports (see
+`src/meva/verification/verifier.py`); it never invents a new one.
+
 ## Screenshots
 
 Not included yet — no screenshots have been captured for this stage. This

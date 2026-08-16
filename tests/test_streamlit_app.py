@@ -289,3 +289,52 @@ def test_streamlit_app_uses_category_hints_and_suggested_values():
 def test_requirements_txt_deps_version_marker_present():
     text = (REPO_ROOT / "requirements.txt").read_text()
     assert "# deps-version:" in text
+
+
+# --- Stage 8G: Guided Mode defaults on, Advanced Mode still available -------
+
+def test_guided_mode_is_the_default_experience():
+    app = _import_streamlit_app()
+    assert app.st.session_state["experience_mode"] == "Guided"
+
+
+def test_advanced_mode_still_defines_validate_form():
+    # _validate_form must exist at module scope regardless of which mode is
+    # active on import, so Advanced Mode's claim builder keeps working.
+    app = _import_streamlit_app()
+    assert app._validate_form("allergy", "present", "", "", "") is not None
+    assert app._validate_form("allergy", "absent", "", "", "") is None
+
+
+def test_streamlit_app_source_has_experience_mode_radio():
+    source = (REPO_ROOT / "streamlit_app.py").read_text()
+    assert 'key="experience_mode"' in source
+    assert '"Guided"' in source and '"Advanced"' in source
+
+
+def test_streamlit_app_source_has_no_chat_ui():
+    """Stage 8G: MEVA must stay a deterministic verification UI, not a chatbot —
+    no chat input/history widgets, no Ollama or cloud LLM calls anywhere. (The
+    module docstring legitimately *mentions* "no Ollama" as a design statement —
+    this checks for actual usage, not the word appearing anywhere in the file.)"""
+    source = (REPO_ROOT / "streamlit_app.py").read_text()
+    forbidden = [
+        "st.chat_input", "st.chat_message",
+        "import ollama", "from meva.models", "from meva.extraction",
+        "openai", "anthropic",
+    ]
+    lowered = source.lower()
+    for term in forbidden:
+        assert term.lower() not in lowered, term
+
+
+def test_streamlit_app_guided_mode_uses_guided_result_explanations():
+    source = (REPO_ROOT / "streamlit_app.py").read_text()
+    assert "GUIDED_RESULT_EXPLANATIONS" in source
+    assert "guided_options(" in source
+    assert "guided_custom_claim(" in source
+
+
+def test_streamlit_app_technical_details_hidden_by_default_in_guided_mode():
+    source = (REPO_ROOT / "streamlit_app.py").read_text()
+    assert '"Show technical details", expanded=False' in source

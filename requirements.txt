@@ -19,5 +19,5 @@
 # the version marker below forces a fresh install on every dependency-
 # relevant change.
 #
-# deps-version: 3
+# deps-version: 4
 -e .[playground]

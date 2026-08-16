@@ -3,6 +3,14 @@
 No verification rules or FHIR parsing of its own — see service.py.
 """
 
+from meva.playground.guided import (
+    GUIDED_CATEGORIES,
+    GUIDED_CATEGORY_LABELS,
+    GUIDED_CUSTOM_LABELS,
+    GUIDED_RESULT_EXPLANATIONS,
+    guided_custom_claim,
+    guided_options,
+)
 from meva.playground.service import (
     CATEGORY_VALUE_HINTS,
     INVALID_PATIENT_ID_EXAMPLE,
@@ -25,4 +33,10 @@ __all__ = [
     "suggested_values",
     "CATEGORY_VALUE_HINTS",
     "INVALID_PATIENT_ID_EXAMPLE",
+    "GUIDED_CATEGORIES",
+    "GUIDED_CATEGORY_LABELS",
+    "GUIDED_CUSTOM_LABELS",
+    "GUIDED_RESULT_EXPLANATIONS",
+    "guided_options",
+    "guided_custom_claim",
 ]
