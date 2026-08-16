@@ -3,5 +3,12 @@
 # Streamlit Community Cloud deployment (see docs/playground.md, "Browser Sandbox").
 #
 # Installs MEVA itself plus the optional "playground" extra (Streamlit).
-# Local development should prefer: pip install -e ".[playground]"
-.[playground]
+#
+# MUST be editable (-e). meva.mcp.registry.DATA_DIR is computed relative to
+# registry.py's own __file__ (4 parents up -> repo root -> data/synthetic/synthea).
+# A non-editable install copies package files into site-packages, so that
+# arithmetic lands inside the venv instead of the cloned repo, and every
+# public synthetic patient silently disappears (see
+# docs/publishing-checklist.md, "Known packaging note", and the Streamlit
+# Cloud incident this fixed).
+-e .[playground]

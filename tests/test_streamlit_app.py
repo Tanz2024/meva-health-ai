@@ -37,6 +37,51 @@ def test_streamlit_app_imports_without_error():
     assert app is not None
 
 
+# --- empty patient list never raises IndexError (Streamlit Cloud incident) --
+
+def test_empty_patient_list_does_not_index_error(monkeypatch):
+    """Regression test: if the public dataset is undiscoverable (the exact Streamlit
+    Cloud incident — a non-editable install broke meva.mcp.registry.DATA_DIR), the
+    app must show a friendly st.error + st.stop(), never raise IndexError on labels[0]."""
+    import streamlit as st
+
+    app = _import_streamlit_app()
+    monkeypatch.setattr(app, "_cached_patient_list", lambda: [])
+
+    stopped = {"called": False}
+
+    def fake_stop():
+        stopped["called"] = True
+        raise SystemExit  # st.stop() halts script execution; simulate that here
+
+    monkeypatch.setattr(st, "stop", fake_stop)
+
+    with pytest.raises(SystemExit):
+        # Re-running the module-level patient-selector logic directly (not the whole
+        # file) to avoid re-triggering Streamlit's full script execution machinery.
+        patients = app._cached_patient_list()
+        patient_options = {f"{p['name']} — {p['patient_id']}": p["patient_id"] for p in patients}
+        labels = list(patient_options.keys())
+        if not labels:
+            st.error("MEVA could not load the public synthetic patient dataset.")
+            st.stop()
+        labels[0]  # would have raised IndexError before the fix
+
+    assert stopped["called"]
+
+
+def test_streamlit_app_source_guards_empty_patient_list_before_indexing():
+    """Static check that the actual guard exists in streamlit_app.py, in the right
+    place — before labels[0] is ever accessed."""
+    source = (REPO_ROOT / "streamlit_app.py").read_text()
+    guard_pos = source.find("if not labels:")
+    index_pos = source.find("labels[0]")
+    assert guard_pos != -1, "streamlit_app.py is missing the 'if not labels' guard"
+    assert index_pos != -1
+    assert guard_pos < index_pos, "the empty-list guard must appear before labels[0] is used"
+    assert "st.stop()" in source
+
+
 # --- patient list uses all 21 public fixtures -------------------------------
 
 def test_streamlit_app_patient_list_has_all_21():

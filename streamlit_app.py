@@ -89,6 +89,13 @@ patient_options = {f"{p['name']} — {p['patient_id']}": p["patient_id"] for p i
 label_by_patient_id = {v: k for k, v in patient_options.items()}
 labels = list(patient_options.keys())
 
+if not labels:
+    st.error(
+        "MEVA could not load the public synthetic patient dataset. "
+        "Please check the deployment configuration."
+    )
+    st.stop()
+
 if "patient_selector" not in st.session_state:
     st.session_state["patient_selector"] = labels[0]
 

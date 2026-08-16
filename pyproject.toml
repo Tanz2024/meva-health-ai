@@ -54,3 +54,8 @@ dev = [
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.pytest.ini_options]
+markers = [
+    "slow: performs a real pip install in a disposable venv — slower than the rest of the suite, but still offline (no network beyond installing this local repo, no AI model).",
+]
