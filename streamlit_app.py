@@ -78,7 +78,7 @@ with header_col:
     st.subheader("Medical Evidence Verification Agent")
     st.caption("Explore how MEVA checks AI-style claims against synthetic FHIR evidence.")
 with github_col:
-    st.link_button("⭐ View on GitHub", GITHUB_URL, use_container_width=True)
+    st.link_button("⭐ View on GitHub", GITHUB_URL, width='stretch')
 
 st.warning(
     "**Synthetic data only. Not medical advice. Not for diagnosis or treatment.** "
@@ -160,7 +160,7 @@ with tabs[0]:
         st.dataframe(
             [{"Name": a["name"], "Criticality": a.get("criticality"), "Clinical status": a.get("clinical_status"),
               "Resource ID": a["id"]} for a in allergies],
-            use_container_width=True, hide_index=True,
+            width='stretch', hide_index=True,
         )
 
 with tabs[1]:
@@ -171,7 +171,7 @@ with tabs[1]:
         st.dataframe(
             [{"Name": m["name"], "Status": m.get("status"), "Intent": m.get("intent"),
               "Resource ID": m["id"]} for m in medications],
-            use_container_width=True, hide_index=True,
+            width='stretch', hide_index=True,
         )
 
 with tabs[2]:
@@ -182,7 +182,7 @@ with tabs[2]:
         st.dataframe(
             [{"Name": c["name"], "Clinical status": c.get("clinical_status"), "Onset": c.get("onset"),
               "Resource ID": c["id"]} for c in conditions],
-            use_container_width=True, hide_index=True,
+            width='stretch', hide_index=True,
         )
 
 with tabs[3]:
@@ -196,7 +196,7 @@ with tabs[3]:
         # whichever is meaningful for DISPLAY — it does not change MCP or verifier behavior.
         st.dataframe(
             [{"Name": o["name"], "Value": observation_display_value(o), "Resource ID": o["id"]} for o in observations],
-            use_container_width=True, hide_index=True,
+            width='stretch', hide_index=True,
         )
         st.caption(
             "Composite observations (e.g. Blood Pressure) show their combined reading here "
@@ -216,7 +216,7 @@ with tabs[4]:
             [{"Type": e["type"], "Status": e["status"],
               "Start": format_datetime_display(e.get("start")),
               "End": format_datetime_display(e.get("end"))} for e in encounters],
-            use_container_width=True, hide_index=True,
+            width='stretch', hide_index=True,
         )
         st.caption("Times normalized to UTC for consistent display.")
 
@@ -242,7 +242,7 @@ st.subheader("Try an example")
 examples = _cached_ready_made_examples()
 example_cols = st.columns(len(examples))
 for col, example in zip(example_cols, examples):
-    if col.button(example["label"], help=example["description"], use_container_width=True):
+    if col.button(example["label"], help=example["description"], width='stretch'):
         st.session_state.claim_form = {
             "category": example["category"], "assertion": example["assertion"],
             "value": example["value"] or "", "attribute": example["attribute"] or "",
@@ -275,7 +275,7 @@ if suggestions:
     st.caption(f"Suggested values from **{patient_detail['name']}**'s own record (you may still type anything else):")
     suggestion_cols = st.columns(len(suggestions))
     for col, suggestion in zip(suggestion_cols, suggestions):
-        if col.button(suggestion, key=f"suggest_{category}_{suggestion}", use_container_width=True):
+        if col.button(suggestion, key=f"suggest_{category}_{suggestion}", width='stretch'):
             st.session_state.claim_form["value"] = suggestion
             st.session_state["claim_value_input"] = suggestion
             st.rerun()
@@ -356,7 +356,7 @@ if submitted:
                 st.dataframe(
                     [{"Source tool": e["source_tool"], "Evidence value": e["value"], "Resource ID": e["resource_id"]}
                      for e in result["evidence"]],
-                    use_container_width=True, hide_index=True,
+                    width='stretch', hide_index=True,
                 )
             else:
                 st.caption("No supporting evidence was found or applicable for this verdict.")
