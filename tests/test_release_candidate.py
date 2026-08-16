@@ -7,8 +7,12 @@ public docs, and the repository-relative data path assumption that Stage
 docs/publishing-checklist.md, "Known packaging note").
 """
 
-import tomllib
 from pathlib import Path
+
+try:
+    import tomllib  # Python 3.11+
+except ModuleNotFoundError:
+    import tomli as tomllib  # Python 3.10
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 

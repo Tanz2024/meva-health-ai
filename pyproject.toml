@@ -45,6 +45,12 @@ dependencies = [
 playground = [
     "streamlit>=1.38.0",
 ]
+# Test/dev-only tooling. tomli backports the Python 3.11+ stdlib tomllib module —
+# needed by a few release-readiness tests and scripts/release_check.py on 3.10.
+dev = [
+    "pytest",
+    "tomli; python_version < '3.11'",
+]
 
 [tool.setuptools.packages.find]
 where = ["src"]

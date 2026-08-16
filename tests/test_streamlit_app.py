@@ -173,7 +173,10 @@ def test_streamlit_app_source_has_no_filesystem_path_input():
 # --- Streamlit remains optional dependency -----------------------------
 
 def test_streamlit_is_an_optional_dependency_not_core():
-    import tomllib
+    try:
+        import tomllib  # Python 3.11+
+    except ModuleNotFoundError:
+        import tomli as tomllib  # Python 3.10
 
     data = tomllib.loads((REPO_ROOT / "pyproject.toml").read_text())
     core_deps = " ".join(data["project"]["dependencies"]).lower()

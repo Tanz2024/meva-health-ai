@@ -292,7 +292,10 @@ def check_playground_deployment_files_exist() -> list[str]:
             errors.append("pyproject.toml does not declare a streamlit dependency anywhere")
         # Streamlit must stay optional — never a core runtime dependency.
         try:
-            import tomllib
+            try:
+                import tomllib  # Python 3.11+
+            except ModuleNotFoundError:
+                import tomli as tomllib  # Python 3.10
             data = tomllib.loads(text)
             core_deps = " ".join(data.get("project", {}).get("dependencies", [])).lower()
             if "streamlit" in core_deps:
@@ -363,7 +366,10 @@ def check_version_consistency() -> list[str]:
     all agree on the target release version (currently 0.1.0)."""
     errors = []
     try:
-        import tomllib
+        try:
+            import tomllib  # Python 3.11+
+        except ModuleNotFoundError:
+            import tomli as tomllib  # Python 3.10
         pyproject = tomllib.loads((REPO_ROOT / "pyproject.toml").read_text())
         version = pyproject["project"]["version"]
     except Exception as e:
