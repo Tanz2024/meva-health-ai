@@ -222,6 +222,20 @@ any way** — it's purely how one table cell is rendered. A claim you build
 from that value still goes through the same unmodified verifier as
 everything else.
 
+## Encounter timestamp display (presentation only)
+
+Each encounter's raw `start`/`end` timestamp carries whatever UTC offset
+Synthea generated for that specific record — this genuinely varies
+record to record for the same patient (e.g. `+07:30` for one encounter,
+`+08:00` for another), which looked inconsistent/"wrong" when shown raw
+in a table. The Encounters tab normalizes every timestamp to UTC for
+display via `format_datetime_display()`, another small presentation-only
+helper in `meva.playground.service`. **This does not change
+`meva.fhir.encounters`, `meva.mcp.server`, or any verified/benchmarked
+value** — `get_encounters()` still returns the original, unmodified
+ISO-8601 string with its original offset; only the table cell rendering
+is normalized.
+
 ## Privacy / synthetic-data notice (shown in-app)
 
 - All patient data displayed is synthetic (Synthea-generated, entirely

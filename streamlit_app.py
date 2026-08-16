@@ -22,6 +22,7 @@ from pydantic import ValidationError
 from meva.playground import (
     build_ready_made_examples,
     describe_patient,
+    format_datetime_display,
     list_patients,
     observation_display_value,
     verify_claim,
@@ -192,10 +193,16 @@ with tabs[4]:
     if not encounters:
         st.info("No encounters recorded for this patient.")
     else:
+        # Presentation-only fix: each encounter's raw timestamp carries whatever UTC
+        # offset Synthea generated for it (varies record to record) — normalized to
+        # UTC here for a consistent table; get_encounters() itself is untouched.
         st.dataframe(
-            [{"Type": e["type"], "Status": e["status"], "Start": e.get("start"), "End": e.get("end")} for e in encounters],
+            [{"Type": e["type"], "Status": e["status"],
+              "Start": format_datetime_display(e.get("start")),
+              "End": format_datetime_display(e.get("end"))} for e in encounters],
             use_container_width=True, hide_index=True,
         )
+        st.caption("Times normalized to UTC for consistent display.")
 
 with st.expander("Developer: normalized JSON for this patient", expanded=False):
     st.json({

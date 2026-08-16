@@ -51,6 +51,31 @@ def observation_display_value(observation: dict) -> str:
     return observation.get("blood_pressure") or observation.get("value") or ""
 
 
+def format_datetime_display(value: str | None) -> str:
+    """Presentation-only fix: FHIR encounter start/end timestamps are stored with
+    whatever UTC offset Synthea generated for that specific encounter (it varies
+    record to record, e.g. some at +07:30, others at +08:00 for the same patient) —
+    displaying them raw in a table makes the offsets look inconsistent/"wrong" even
+    though each one is individually correct. This normalizes every timestamp to UTC
+    for DISPLAY ONLY. It does not touch meva.fhir.encounters, meva.mcp.server, or
+    any verified/benchmarked value — get_encounters() still returns the original,
+    unmodified ISO-8601 string with its original offset.
+
+    Falls back to the original raw string (never fabricates a time) if the value is
+    missing or not parseable.
+    """
+    if not value:
+        return ""
+    try:
+        from datetime import datetime, timezone
+        parsed = datetime.fromisoformat(value)
+        if parsed.tzinfo is None:
+            return value  # no offset to normalize — show as recorded
+        return parsed.astimezone(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+    except ValueError:
+        return value
+
+
 def verify_claim(
     patient_id: str, category: str, assertion: str, value: str | None = None,
     attribute: str | None = None, attribute_value: str | None = None, text: str | None = None,

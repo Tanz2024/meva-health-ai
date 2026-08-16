@@ -14,6 +14,7 @@ from pathlib import Path
 from meva.playground import (
     build_ready_made_examples,
     describe_patient,
+    format_datetime_display,
     list_patients,
     observation_display_value,
     verify_claim,
@@ -137,6 +138,34 @@ def test_observation_display_value_prefers_blood_pressure_over_null_value():
 def test_observation_display_value_falls_back_to_plain_value():
     simple_observation = {"name": "Heart rate", "value": "72 /min", "blood_pressure": None}
     assert observation_display_value(simple_observation) == "72 /min"
+
+
+# --- encounter timestamp normalization (presentation-only) -----------------
+
+def test_format_datetime_display_normalizes_offset_to_utc():
+    # +08:00 -> 07:33 UTC (matches the exact offset reported from the deployed sandbox)
+    assert format_datetime_display("2023-07-29T15:33:11+08:00") == "2023-07-29 07:33 UTC"
+
+
+def test_format_datetime_display_normalizes_different_offsets_consistently():
+    # Two different raw offsets for the same instant must normalize to the same UTC display.
+    a = format_datetime_display("2024-01-06T15:33:11+08:00")
+    b = format_datetime_display("2024-01-06T14:33:11+07:00")
+    assert a == b == "2024-01-06 07:33 UTC"
+
+
+def test_format_datetime_display_handles_missing_value():
+    assert format_datetime_display(None) == ""
+    assert format_datetime_display("") == ""
+
+
+def test_format_datetime_display_falls_back_on_unparseable_value():
+    assert format_datetime_display("not-a-real-timestamp") == "not-a-real-timestamp"
+
+
+def test_format_datetime_display_leaves_naive_datetime_unchanged():
+    # No offset to normalize against -- shown as recorded rather than guessed.
+    assert format_datetime_display("2024-01-06T15:33:11") == "2024-01-06T15:33:11"
 
 
 # --- provenance -----------------------------------------------------------

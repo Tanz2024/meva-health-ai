@@ -7,6 +7,7 @@ from meva.playground.service import (
     INVALID_PATIENT_ID_EXAMPLE,
     build_ready_made_examples,
     describe_patient,
+    format_datetime_display,
     list_patients,
     observation_display_value,
     verify_claim,
@@ -17,6 +18,7 @@ __all__ = [
     "describe_patient",
     "verify_claim",
     "observation_display_value",
+    "format_datetime_display",
     "build_ready_made_examples",
     "INVALID_PATIENT_ID_EXAMPLE",
 ]
