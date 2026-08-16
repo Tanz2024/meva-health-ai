@@ -1,11 +1,13 @@
 # Contributor starter issues
 
-Concrete, scoped tasks a new contributor could pick up. **These are
-proposals only — none of them have been implemented, and none have been
-published as GitHub issues yet.** They exist so the maintainer can review
-and publish them (or adjust them) before opening the repository up for
-contributions. See `docs/github-labels.md` for the label set referenced
-below.
+Some of these starter ideas have now been published as GitHub issues.
+Check the live issue tracker first to avoid duplicate work:
+
+https://github.com/Tanz2024/meva-health-ai/issues
+
+The remaining items in this document are proposed contribution areas
+that may be opened as issues later. See `docs/github-labels.md` for the
+label set referenced below.
 
 ---
 

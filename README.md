@@ -316,10 +316,13 @@ Full setup, testing details, and how to add FHIR support, benchmark cases
 
 ### Looking for a first contribution?
 
-See **[`docs/contributor-issues.md`](docs/contributor-issues.md)** for a set
-of concrete, scoped starter tasks (issue links will be added here once
-they're published on GitHub) — and `CONTRIBUTING.md` for the general
-process above.
+Check the open GitHub issues:
+https://github.com/Tanz2024/meva-health-ai/issues
+
+A good place to start is an issue labeled `good first issue` or `help wanted`.
+
+See `docs/contributor-issues.md` for additional proposed contribution areas
+and `CONTRIBUTING.md` for setup and submission guidelines.
 
 ## License
 
@@ -333,5 +336,4 @@ see `docs/historical-sample-data-provenance.md` for the full history.
 
 ## Citation
 
-See [`CITATION.cff`](CITATION.cff). The release date field is intentionally
-left unset until the actual `v0.1.0` release — see `docs/publishing-checklist.md`.
+See [`CITATION.cff`](CITATION.cff) for citation metadata for MEVA v0.1.0.
