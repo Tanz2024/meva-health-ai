@@ -28,6 +28,33 @@ are grounded in retrieved synthetic FHIR evidence, using a deterministic
 > [Scope and safety](#scope-and-safety) below and `docs/safety-and-scope.md`
 > for the full statement.
 
+## See MEVA in action
+
+Screenshots from the live hosted sandbox — **synthetic data only, not
+medical advice, and no AI model runs in the hosted sandbox** (every result
+comes from MEVA's deterministic verifier, not a model's opinion).
+
+### Guided Mode
+
+![Guided Mode](docs/images/meva-guided.png)
+
+Guided Mode — choose a fictional patient and verify a claim using a simple
+plain-English workflow.
+
+### Evidence-backed verification
+
+![Evidence-backed verification](docs/images/meva-result.png)
+
+MEVA checks the claim against recorded synthetic FHIR evidence and returns
+SUPPORTED, CONTRADICTED, UNSUPPORTED, or UNVERIFIABLE.
+
+### Advanced Mode
+
+![Advanced Mode](docs/images/meva-advanced.png)
+
+Advanced Mode — technical evidence explorer and structured claim controls
+for developers, researchers, and contributors.
+
 ## Why MEVA exists
 
 Local AI agents can call tools, retrieve real data, and generate a
@@ -237,16 +264,9 @@ value); MEVA checks it against real recorded data and returns
 SUPPORTED/CONTRADICTED/UNSUPPORTED/UNVERIFIABLE with full provenance. Full
 details, including how the four modes differ: [`docs/playground.md`](docs/playground.md).
 
-### Screenshots
-
-Not yet included in this repository. Once available, they'll live at:
-
-- `docs/images/meva-sandbox-overview.png` — the main sandbox page
-- `docs/images/meva-evidence-explorer.png` — a selected patient's evidence tabs
-- `docs/images/meva-verification-result.png` — a verification result card
-
-(`docs/images/` already exists in this repo, ready for those files — see the
-live sandbox link above for the real thing in the meantime.)
+See [See MEVA in action](#see-meva-in-action) near the top of this README
+for screenshots of the hosted sandbox (Guided Mode, a verification result,
+and Advanced Mode).
 
 ## Documentation
 
