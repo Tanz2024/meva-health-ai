@@ -16,6 +16,7 @@ editable vs. non-editable installs and different hosting layouts.
 """
 
 import logging
+from functools import lru_cache
 from pathlib import Path
 
 from meva.fhir import get_patient, load_bundle, patient_name
@@ -93,23 +94,47 @@ class UnknownPatientError(Exception):
     """Raised when a requested patient_id does not match any known bundle."""
 
 
-def _approved_bundle_files() -> list[Path]:
-    """List the synthetic patient bundle files inside the approved data directory only."""
-    if not DATA_DIR.exists():
+def _bundle_files_in(data_dir: Path) -> list[Path]:
+    """List patient-*.json bundle files inside `data_dir` only — restricted to
+    files that really resolve inside it (defends against a symlink or glob
+    quirk ever escaping the approved directory). Takes `data_dir` explicitly
+    (rather than reading the DATA_DIR global) so it can be used both by the
+    live no-argument lookup below and by the directory-keyed registry cache
+    without the two ever getting out of sync."""
+    if not data_dir.exists():
         return []
 
     files = []
-    for path in sorted(DATA_DIR.glob("patient-*.json")):
-        # Defensive check: make sure the resolved file is really inside DATA_DIR.
-        if path.resolve().parent == DATA_DIR:
+    for path in sorted(data_dir.glob("patient-*.json")):
+        if path.resolve().parent == data_dir:
             files.append(path)
     return files
 
 
-def _build_registry() -> dict[str, dict]:
-    """Load every approved bundle once and index it by FHIR patient ID."""
+def _approved_bundle_files() -> list[Path]:
+    """List the synthetic patient bundle files inside the approved data
+    directory only. Always reads the *current* DATA_DIR global (not a cached
+    value) — tests rely on this to reflect a monkeypatched DATA_DIR."""
+    return _bundle_files_in(DATA_DIR)
+
+
+@lru_cache(maxsize=None)
+def _cached_build_registry(data_dir: Path) -> dict[str, dict]:
+    """Load every approved bundle for `data_dir` once and index it by FHIR
+    patient ID — this is the expensive step (parsing every patient's full
+    FHIR bundle from disk), cached per-directory for the life of the process.
+
+    Cached on `data_dir` explicitly, not as a bare no-argument cache: if
+    DATA_DIR ever changes within a process (a test monkeypatching it, a
+    fixture-directory swap in development), a different key is used and a
+    fresh registry is built for it, instead of silently reusing a stale
+    registry built for a different directory. See
+    docs/publishing-checklist.md / CHANGELOG.md for the deployment incident
+    that made DATA_DIR itself something resolved at runtime rather than a
+    fixed constant.
+    """
     registry = {}
-    for path in _approved_bundle_files():
+    for path in _bundle_files_in(data_dir):
         try:
             resources = load_bundle(str(path))
         except (ValueError, FileNotFoundError):
@@ -127,6 +152,23 @@ def _build_registry() -> dict[str, dict]:
         }
 
     return registry
+
+
+def _build_registry() -> dict[str, dict]:
+    """Return the (cached) patient registry for the current DATA_DIR,
+    building it once per distinct DATA_DIR value seen in this process. See
+    `_cached_build_registry` for caching behavior and `clear_registry_cache`
+    to force a rebuild (tests/development only)."""
+    return _cached_build_registry(DATA_DIR)
+
+
+def clear_registry_cache() -> None:
+    """Clear the process-local registry cache. For tests and development
+    only — e.g. after monkeypatching DATA_DIR to different fixtures, or
+    editing fixture files on disk mid-session. Not needed in normal
+    operation: DATA_DIR is resolved once at import time and doesn't change
+    during a real deployment's lifetime."""
+    _cached_build_registry.cache_clear()
 
 
 def list_patients() -> list[dict]:
@@ -148,4 +190,9 @@ def get_resources_for_patient(patient_id: str) -> list[dict]:
     entry = registry.get(patient_id)
     if entry is None:
         raise UnknownPatientError(f"No synthetic patient found with ID '{patient_id}'")
-    return entry["resources"]
+    # Shallow copy: the caller gets its own list object, so appending to or
+    # reordering it can never mutate the shared cached registry entry.
+    # Nothing in this codebase mutates the individual resource dicts
+    # in-place, so a shallow copy is enough here — a full deep copy would
+    # reintroduce real per-call cost for no behavioral benefit.
+    return list(entry["resources"])
