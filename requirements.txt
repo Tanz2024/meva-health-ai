@@ -1,6 +1,5 @@
-# Deployment dependency file for the Stage 8C browser sandbox (streamlit_app.py).
-# Not deployed yet — this only prepares the repository for a future
-# Streamlit Community Cloud deployment (see docs/playground.md, "Browser Sandbox").
+# Deployment dependency file for MEVA's Streamlit Community Cloud sandbox
+# (streamlit_app.py). See docs/playground.md, "Browser Sandbox".
 #
 # Installs MEVA itself plus the optional "playground" extra (Streamlit).
 #
@@ -11,4 +10,14 @@
 # public synthetic patient silently disappears (see
 # docs/publishing-checklist.md, "Known packaging note", and the Streamlit
 # Cloud incident this fixed).
+#
+# NOTE: if you change any importable name inside src/meva/ (e.g. add a new
+# function to meva.playground.service) without also touching this file,
+# Streamlit Community Cloud may skip re-running dependency installation on
+# redeploy and keep serving a stale snapshot of the `meva` package, causing
+# an ImportError even though the code is correct in the repository. Bumping
+# the version marker below forces a fresh install on every dependency-
+# relevant change.
+#
+# deps-version: 2
 -e .[playground]
