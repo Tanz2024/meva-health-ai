@@ -1,0 +1,9 @@
+{
+  "id": "patient-001",
+  "name": "John Smith",
+  "gender": "male",
+  "age": 55,
+  "allergies": ["Penicillin"],
+  "medications": ["Metformin"],
+  "blood_pressure": "128/82"
+}

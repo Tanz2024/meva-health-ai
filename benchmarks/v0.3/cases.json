@@ -1,0 +1,1145 @@
+[
+  {
+    "case_id": "allergy-01",
+    "category": "allergy",
+    "case_type": "AGENT",
+    "difficulty": "simple",
+    "patient_id": "6895f047-ab31-c293-b335-374256e01eb1",
+    "question": "Does patient 6895f047-ab31-c293-b335-374256e01eb1 have a recorded allergy to Mold?",
+    "expected_tools": [
+      "get_allergies"
+    ],
+    "description": "Real allergy on patient-03: Mold (organism).",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "allergy",
+        "value": "Mold (organism)",
+        "source_tool": "get_allergies",
+        "resource_id": "f16193c1-0f54-5545-48c2-71c7e76d3750"
+      }
+    ]
+  },
+  {
+    "case_id": "allergy-02",
+    "category": "allergy",
+    "case_type": "AGENT",
+    "difficulty": "simple",
+    "patient_id": "6895f047-ab31-c293-b335-374256e01eb1",
+    "question": "Does patient 6895f047-ab31-c293-b335-374256e01eb1 have a recorded allergy to House dust mite?",
+    "expected_tools": [
+      "get_allergies"
+    ],
+    "description": "Real allergy on patient-03: House dust mite (organism).",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "allergy",
+        "value": "House dust mite (organism)",
+        "source_tool": "get_allergies",
+        "resource_id": "3e542e05-42d4-51e6-6f74-4d02819ea77f"
+      }
+    ]
+  },
+  {
+    "case_id": "allergy-03",
+    "category": "allergy",
+    "case_type": "AGENT",
+    "difficulty": "simple",
+    "patient_id": "6895f047-ab31-c293-b335-374256e01eb1",
+    "question": "Does patient 6895f047-ab31-c293-b335-374256e01eb1 have a recorded allergy to Animal dander?",
+    "expected_tools": [
+      "get_allergies"
+    ],
+    "description": "Real allergy on patient-03: Animal dander (substance).",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "allergy",
+        "value": "Animal dander (substance)",
+        "source_tool": "get_allergies",
+        "resource_id": "7912574a-ae5b-d6df-bbc0-d09073821754"
+      }
+    ]
+  },
+  {
+    "case_id": "allergy-04",
+    "category": "allergy",
+    "case_type": "AGENT",
+    "difficulty": "simple",
+    "patient_id": "6895f047-ab31-c293-b335-374256e01eb1",
+    "question": "Does patient 6895f047-ab31-c293-b335-374256e01eb1 have a recorded allergy to Grass pollen?",
+    "expected_tools": [
+      "get_allergies"
+    ],
+    "description": "Real allergy on patient-03: Grass pollen (substance).",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "allergy",
+        "value": "Grass pollen (substance)",
+        "source_tool": "get_allergies",
+        "resource_id": "f8de7bb1-e82f-163f-de97-20c8cee61585"
+      }
+    ]
+  },
+  {
+    "case_id": "allergy-05",
+    "category": "allergy",
+    "case_type": "AGENT",
+    "difficulty": "simple",
+    "patient_id": "6895f047-ab31-c293-b335-374256e01eb1",
+    "question": "Does patient 6895f047-ab31-c293-b335-374256e01eb1 have a recorded allergy to Tree pollen?",
+    "expected_tools": [
+      "get_allergies"
+    ],
+    "description": "Real allergy on patient-03: Tree pollen (substance).",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "allergy",
+        "value": "Tree pollen (substance)",
+        "source_tool": "get_allergies",
+        "resource_id": "813d7fda-4817-16e7-c8d6-b1e641fcc650"
+      }
+    ]
+  },
+  {
+    "case_id": "allergy-06",
+    "category": "allergy",
+    "case_type": "AGENT",
+    "difficulty": "multi_fact",
+    "patient_id": "6895f047-ab31-c293-b335-374256e01eb1",
+    "question": "What is recorded for patient 6895f047-ab31-c293-b335-374256e01eb1's Fish allergy, including its criticality and clinical status?",
+    "expected_tools": [
+      "get_allergies"
+    ],
+    "description": "Regression case (Stage 7B): Fish (substance) name + criticality (low) + clinical_status (active) should all be verifiable, not just the name.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "allergy",
+        "value": "Fish (substance)",
+        "source_tool": "get_allergies",
+        "resource_id": "51a7390e-6e25-9215-218a-3682cf5292a0"
+      }
+    ]
+  },
+  {
+    "case_id": "allergy-07",
+    "category": "allergy",
+    "case_type": "AGENT",
+    "difficulty": "multi_fact",
+    "patient_id": "6895f047-ab31-c293-b335-374256e01eb1",
+    "question": "What is recorded for patient 6895f047-ab31-c293-b335-374256e01eb1's Soya bean allergy, including its criticality and clinical status?",
+    "expected_tools": [
+      "get_allergies"
+    ],
+    "description": "Regression case (Stage 7B): Soya bean (substance) name + criticality (low) + clinical_status (active) should all be verifiable, not just the name.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "allergy",
+        "value": "Soya bean (substance)",
+        "source_tool": "get_allergies",
+        "resource_id": "5f1bc371-48e4-c591-1917-1eb36648062b"
+      }
+    ]
+  },
+  {
+    "case_id": "allergy-08",
+    "category": "allergy",
+    "case_type": "AGENT",
+    "difficulty": "negative",
+    "patient_id": "c28b00a3-54c0-21ba-4ed7-de871f1b157f",
+    "question": "What allergies are recorded for patient c28b00a3-54c0-21ba-4ed7-de871f1b157f?",
+    "expected_tools": [
+      "get_allergies"
+    ],
+    "description": "This patient (patient-02) has zero recorded allergies.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": []
+  },
+  {
+    "case_id": "medication-01",
+    "category": "medication",
+    "case_type": "AGENT",
+    "difficulty": "simple",
+    "patient_id": "6895f047-ab31-c293-b335-374256e01eb1",
+    "question": "Is Loratadine recorded as a medication for patient 6895f047-ab31-c293-b335-374256e01eb1?",
+    "expected_tools": [
+      "get_medications"
+    ],
+    "description": "Real medication on patient-03: Loratadine 5 MG Chewable Tablet.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "medication",
+        "value": "Loratadine 5 MG Chewable Tablet",
+        "source_tool": "get_medications",
+        "resource_id": "9cc52816-50b3-e06f-d907-051b3e0fb17c"
+      }
+    ]
+  },
+  {
+    "case_id": "medication-02",
+    "category": "medication",
+    "case_type": "AGENT",
+    "difficulty": "simple",
+    "patient_id": "fab540db-3bc8-bbf8-69bc-5d8a9dbb752f",
+    "question": "Is Cefuroxime recorded as a medication for patient fab540db-3bc8-bbf8-69bc-5d8a9dbb752f?",
+    "expected_tools": [
+      "get_medications"
+    ],
+    "description": "Real medication on patient-07: Cefuroxime 250 MG Oral Tablet.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "medication",
+        "value": "Cefuroxime 250 MG Oral Tablet",
+        "source_tool": "get_medications",
+        "resource_id": "789dd8d6-2f5b-5a40-6efb-3233bad675f5"
+      }
+    ]
+  },
+  {
+    "case_id": "medication-03",
+    "category": "medication",
+    "case_type": "AGENT",
+    "difficulty": "simple",
+    "patient_id": "ce032ded-978b-b56b-425f-5159d4a4038e",
+    "question": "Is Diazepam recorded as a medication for patient ce032ded-978b-b56b-425f-5159d4a4038e?",
+    "expected_tools": [
+      "get_medications"
+    ],
+    "description": "Real medication on patient-09: Diazepam 5 MG Oral Tablet.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "medication",
+        "value": "Diazepam 5 MG Oral Tablet",
+        "source_tool": "get_medications",
+        "resource_id": "1c5d6851-e4e9-b798-5fad-e78ccc0b1e53"
+      }
+    ]
+  },
+  {
+    "case_id": "medication-04",
+    "category": "medication",
+    "case_type": "AGENT",
+    "difficulty": "simple",
+    "patient_id": "2c622c62-af49-25e3-4f67-3ab19a455bb2",
+    "question": "Is Diazepam recorded as a medication for patient 2c622c62-af49-25e3-4f67-3ab19a455bb2?",
+    "expected_tools": [
+      "get_medications"
+    ],
+    "description": "Real medication on patient-13: Diazepam 5 MG Oral Tablet.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "medication",
+        "value": "Diazepam 5 MG Oral Tablet",
+        "source_tool": "get_medications",
+        "resource_id": "c9611198-84d2-4743-891c-a0fb440b31a1"
+      }
+    ]
+  },
+  {
+    "case_id": "medication-05",
+    "category": "medication",
+    "case_type": "AGENT",
+    "difficulty": "simple",
+    "patient_id": "d1f767cc-a980-8bd9-8a1b-f7ada327b40c",
+    "question": "Is Amoxicillin recorded as a medication for patient d1f767cc-a980-8bd9-8a1b-f7ada327b40c?",
+    "expected_tools": [
+      "get_medications"
+    ],
+    "description": "Real medication on patient-15: Amoxicillin 500 MG Oral Tablet.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "medication",
+        "value": "Amoxicillin 500 MG Oral Tablet",
+        "source_tool": "get_medications",
+        "resource_id": "587b0e3b-4831-281f-343f-987b2290557b"
+      }
+    ]
+  },
+  {
+    "case_id": "medication-06",
+    "category": "medication",
+    "case_type": "AGENT",
+    "difficulty": "simple",
+    "patient_id": "f4018f25-2220-b846-1dea-5d0818e0baea",
+    "question": "Is Carbamazepine recorded as a medication for patient f4018f25-2220-b846-1dea-5d0818e0baea?",
+    "expected_tools": [
+      "get_medications"
+    ],
+    "description": "Real medication on patient-18: Carbamazepine[Tegretol].",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "medication",
+        "value": "Carbamazepine[Tegretol]",
+        "source_tool": "get_medications",
+        "resource_id": "7a07af39-92ae-a369-cfca-ffab67cc46ae"
+      }
+    ]
+  },
+  {
+    "case_id": "medication-07",
+    "category": "medication",
+    "case_type": "AGENT",
+    "difficulty": "multi_fact",
+    "patient_id": "b3c96d58-b033-6bc7-a65f-3acd85698fd6",
+    "question": "What is recorded for patient b3c96d58-b033-6bc7-a65f-3acd85698fd6's Amoxicillin medication, including its status?",
+    "expected_tools": [
+      "get_medications"
+    ],
+    "description": "Regression case: Amoxicillin name + status (stopped) should both be verifiable.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "medication",
+        "value": "Amoxicillin 500 MG Oral Tablet",
+        "source_tool": "get_medications",
+        "resource_id": "7c9919e6-1770-fc3c-32de-f523de3bab4a"
+      }
+    ]
+  },
+  {
+    "case_id": "medication-08",
+    "category": "medication",
+    "case_type": "AGENT",
+    "difficulty": "negative",
+    "patient_id": "a57b5df9-090b-3367-e302-89f6c9660923",
+    "question": "What medications are recorded for patient a57b5df9-090b-3367-e302-89f6c9660923?",
+    "expected_tools": [
+      "get_medications"
+    ],
+    "description": "This patient (patient-04) has zero recorded medications.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": []
+  },
+  {
+    "case_id": "condition-01",
+    "category": "condition",
+    "case_type": "AGENT",
+    "difficulty": "simple",
+    "patient_id": "6895f047-ab31-c293-b335-374256e01eb1",
+    "question": "What conditions are recorded for patient 6895f047-ab31-c293-b335-374256e01eb1?",
+    "expected_tools": [
+      "get_conditions"
+    ],
+    "description": "Real condition on patient-03: Acute viral pharyngitis (disorder).",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "condition",
+        "value": "Acute viral pharyngitis (disorder)",
+        "source_tool": "get_conditions",
+        "resource_id": "f50c513b-137a-7d4d-195c-966851772c5e"
+      }
+    ]
+  },
+  {
+    "case_id": "condition-02",
+    "category": "condition",
+    "case_type": "AGENT",
+    "difficulty": "simple",
+    "patient_id": "fab540db-3bc8-bbf8-69bc-5d8a9dbb752f",
+    "question": "What conditions are recorded for patient fab540db-3bc8-bbf8-69bc-5d8a9dbb752f?",
+    "expected_tools": [
+      "get_conditions"
+    ],
+    "description": "Real condition on patient-07: Otitis media.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "condition",
+        "value": "Otitis media",
+        "source_tool": "get_conditions",
+        "resource_id": "3110f2d2-6f14-0e69-044b-be82c2e07095"
+      }
+    ]
+  },
+  {
+    "case_id": "condition-03",
+    "category": "condition",
+    "case_type": "AGENT",
+    "difficulty": "simple",
+    "patient_id": "251ec304-b5fb-e3fa-72ed-197b957c3378",
+    "question": "What conditions are recorded for patient 251ec304-b5fb-e3fa-72ed-197b957c3378?",
+    "expected_tools": [
+      "get_conditions"
+    ],
+    "description": "Real condition on patient-11: Viral sinusitis (disorder).",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "condition",
+        "value": "Viral sinusitis (disorder)",
+        "source_tool": "get_conditions",
+        "resource_id": "980bc565-8b9d-9050-2bb1-47e6d24e6918"
+      }
+    ]
+  },
+  {
+    "case_id": "condition-04",
+    "category": "condition",
+    "case_type": "AGENT",
+    "difficulty": "simple",
+    "patient_id": "b1b0fe43-a0f7-3ea6-67f8-0b5a3afd5a8e",
+    "question": "What conditions are recorded for patient b1b0fe43-a0f7-3ea6-67f8-0b5a3afd5a8e?",
+    "expected_tools": [
+      "get_conditions"
+    ],
+    "description": "Real condition on patient-12: Otitis media.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "condition",
+        "value": "Otitis media",
+        "source_tool": "get_conditions",
+        "resource_id": "c6ab3632-d75a-b7a2-dd87-a27bbd9be908"
+      }
+    ]
+  },
+  {
+    "case_id": "condition-05",
+    "category": "condition",
+    "case_type": "AGENT",
+    "difficulty": "simple",
+    "patient_id": "ce032ded-978b-b56b-425f-5159d4a4038e",
+    "question": "What conditions are recorded for patient ce032ded-978b-b56b-425f-5159d4a4038e?",
+    "expected_tools": [
+      "get_conditions"
+    ],
+    "description": "Real condition on patient-09: Seizure disorder.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "condition",
+        "value": "Seizure disorder",
+        "source_tool": "get_conditions",
+        "resource_id": "90a40458-61b4-34ad-8fea-d8747cc90e57"
+      }
+    ]
+  },
+  {
+    "case_id": "condition-06",
+    "category": "condition",
+    "case_type": "AGENT",
+    "difficulty": "multi_fact",
+    "patient_id": "f4018f25-2220-b846-1dea-5d0818e0baea",
+    "question": "What is recorded for patient f4018f25-2220-b846-1dea-5d0818e0baea's Acute bronchitis condition, including its clinical status?",
+    "expected_tools": [
+      "get_conditions"
+    ],
+    "description": "Regression case: Acute bronchitis name + clinical_status (active) should both be verifiable.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "condition",
+        "value": "Acute bronchitis (disorder)",
+        "source_tool": "get_conditions",
+        "resource_id": "88ce1c71-34da-2e72-794b-be741e1a7ef7"
+      }
+    ]
+  },
+  {
+    "case_id": "condition-07",
+    "category": "condition",
+    "case_type": "AGENT",
+    "difficulty": "negative",
+    "patient_id": "e4c43a21-11b3-d96d-ede9-0c71e8cb1574",
+    "question": "What conditions are recorded for patient e4c43a21-11b3-d96d-ede9-0c71e8cb1574?",
+    "expected_tools": [
+      "get_conditions"
+    ],
+    "description": "This patient (patient-06) has zero recorded conditions.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": []
+  },
+  {
+    "case_id": "condition-08",
+    "category": "condition",
+    "case_type": "AGENT",
+    "difficulty": "negative",
+    "patient_id": "7d5e31d3-163b-4a77-576b-1ed21adf8c09",
+    "question": "What conditions are recorded for patient 7d5e31d3-163b-4a77-576b-1ed21adf8c09?",
+    "expected_tools": [
+      "get_conditions"
+    ],
+    "description": "This patient (patient-08) has zero recorded conditions.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": []
+  },
+  {
+    "case_id": "observation-01",
+    "category": "observation",
+    "case_type": "AGENT",
+    "difficulty": "simple",
+    "patient_id": "6895f047-ab31-c293-b335-374256e01eb1",
+    "question": "What is the first recorded blood pressure for patient 6895f047-ab31-c293-b335-374256e01eb1?",
+    "expected_tools": [
+      "get_observations"
+    ],
+    "description": "First Blood Pressure observation on patient-03 is 128/81 mmHg.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "observation",
+        "value": "128/81 mmHg",
+        "source_tool": "get_observations",
+        "resource_id": "078aa38b-d482-c230-b1fb-b15cf96bd765"
+      }
+    ]
+  },
+  {
+    "case_id": "observation-02",
+    "category": "observation",
+    "case_type": "AGENT",
+    "difficulty": "simple",
+    "patient_id": "363f50e2-9771-dfb4-1ff5-3d7db24b9ada",
+    "question": "What is the first recorded body height for patient 363f50e2-9771-dfb4-1ff5-3d7db24b9ada?",
+    "expected_tools": [
+      "get_observations"
+    ],
+    "description": "First Body Height observation on patient-01 is 48.2 cm.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "observation",
+        "value": "48.2 cm",
+        "source_tool": "get_observations",
+        "resource_id": "c55fa7a8-034a-7e6e-d4db-bd684d9f78d5"
+      }
+    ]
+  },
+  {
+    "case_id": "observation-03",
+    "category": "observation",
+    "case_type": "AGENT",
+    "difficulty": "simple",
+    "patient_id": "c28b00a3-54c0-21ba-4ed7-de871f1b157f",
+    "question": "What is the first recorded blood pressure for patient c28b00a3-54c0-21ba-4ed7-de871f1b157f?",
+    "expected_tools": [
+      "get_observations"
+    ],
+    "description": "First Blood Pressure observation on patient-02 is 129/83 mmHg.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "observation",
+        "value": "129/83 mmHg",
+        "source_tool": "get_observations",
+        "resource_id": "c35ab0b4-8064-2e5e-23aa-d4da682d1aa5"
+      }
+    ]
+  },
+  {
+    "case_id": "observation-04",
+    "category": "observation",
+    "case_type": "AGENT",
+    "difficulty": "simple",
+    "patient_id": "faac724a-a9e9-be66-fe1e-3044dc0ba8ea",
+    "question": "What is the first recorded heart rate for patient faac724a-a9e9-be66-fe1e-3044dc0ba8ea?",
+    "expected_tools": [
+      "get_observations"
+    ],
+    "description": "First Heart rate observation on patient-05 is 88 /min.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "observation",
+        "value": "88 /min",
+        "source_tool": "get_observations",
+        "resource_id": "eb9076fe-f042-9456-0fba-e64b4db6cd7f"
+      }
+    ]
+  },
+  {
+    "case_id": "observation-05",
+    "category": "observation",
+    "case_type": "AGENT",
+    "difficulty": "simple",
+    "patient_id": "d8e3a701-d108-74ff-2ce3-156537276a14",
+    "question": "What is the first recorded blood pressure for patient d8e3a701-d108-74ff-2ce3-156537276a14?",
+    "expected_tools": [
+      "get_observations"
+    ],
+    "description": "First Blood Pressure observation on patient-10 is 108/81 mmHg.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "observation",
+        "value": "108/81 mmHg",
+        "source_tool": "get_observations",
+        "resource_id": "655de2d0-4adb-bd21-dc43-9e0bee6c74c2"
+      }
+    ]
+  },
+  {
+    "case_id": "observation-06",
+    "category": "observation",
+    "case_type": "AGENT",
+    "difficulty": "simple",
+    "patient_id": "2798ae24-ef3b-1906-6e41-a31e0fd833a0",
+    "question": "What is the first recorded body weight for patient 2798ae24-ef3b-1906-6e41-a31e0fd833a0?",
+    "expected_tools": [
+      "get_observations"
+    ],
+    "description": "First Body Weight observation on patient-14 is 4.1 kg.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "observation",
+        "value": "4.1 kg",
+        "source_tool": "get_observations",
+        "resource_id": "fe49874d-f3fa-62ba-1821-51011bd722f1"
+      }
+    ]
+  },
+  {
+    "case_id": "observation-07",
+    "category": "observation",
+    "case_type": "AGENT",
+    "difficulty": "simple",
+    "patient_id": "423a9252-21e3-6141-4207-46a9066fd7f4",
+    "question": "What is the first recorded respiratory rate for patient 423a9252-21e3-6141-4207-46a9066fd7f4?",
+    "expected_tools": [
+      "get_observations"
+    ],
+    "description": "First Respiratory rate observation on patient-16 is 16 /min.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "observation",
+        "value": "16 /min",
+        "source_tool": "get_observations",
+        "resource_id": "43c9421c-ee8a-43d3-da04-e557473b9a77"
+      }
+    ]
+  },
+  {
+    "case_id": "observation-08",
+    "category": "observation",
+    "case_type": "AGENT",
+    "difficulty": "simple",
+    "patient_id": "a57b5df9-090b-3367-e302-89f6c9660923",
+    "question": "What is the first recorded body height for patient a57b5df9-090b-3367-e302-89f6c9660923?",
+    "expected_tools": [
+      "get_observations"
+    ],
+    "description": "First Body Height observation on patient-04 is 190.7 cm.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "observation",
+        "value": "190.7 cm",
+        "source_tool": "get_observations",
+        "resource_id": "947b4489-4e0b-f989-8f80-b19d2212bcae"
+      }
+    ]
+  },
+  {
+    "case_id": "observation-09",
+    "category": "observation",
+    "case_type": "AGENT",
+    "difficulty": "simple",
+    "patient_id": "7d5e31d3-163b-4a77-576b-1ed21adf8c09",
+    "question": "What is the first recorded heart rate for patient 7d5e31d3-163b-4a77-576b-1ed21adf8c09?",
+    "expected_tools": [
+      "get_observations"
+    ],
+    "description": "First Heart rate observation on patient-08 is 93 /min.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "observation",
+        "value": "93 /min",
+        "source_tool": "get_observations",
+        "resource_id": "a626ffd3-02ee-89a1-f11b-08ec2f502e1c"
+      }
+    ]
+  },
+  {
+    "case_id": "observation-10",
+    "category": "observation",
+    "case_type": "AGENT",
+    "difficulty": "simple",
+    "patient_id": "e4c43a21-11b3-d96d-ede9-0c71e8cb1574",
+    "question": "What is the first recorded blood pressure for patient e4c43a21-11b3-d96d-ede9-0c71e8cb1574?",
+    "expected_tools": [
+      "get_observations"
+    ],
+    "description": "First Blood Pressure observation on patient-06 is 121/77 mmHg.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "observation",
+        "value": "121/77 mmHg",
+        "source_tool": "get_observations",
+        "resource_id": "d21c91e2-7290-756a-1e4f-6b862af6f1aa"
+      }
+    ]
+  },
+  {
+    "case_id": "patient-01",
+    "category": "patient",
+    "case_type": "AGENT",
+    "difficulty": "simple",
+    "patient_id": "6895f047-ab31-c293-b335-374256e01eb1",
+    "question": "What gender is recorded for patient 6895f047-ab31-c293-b335-374256e01eb1?",
+    "expected_tools": [
+      "get_patient"
+    ],
+    "description": "Patient-03's gender field is female.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "patient",
+        "value": "female",
+        "source_tool": "get_patient",
+        "resource_id": null
+      }
+    ]
+  },
+  {
+    "case_id": "patient-02",
+    "category": "patient",
+    "case_type": "AGENT",
+    "difficulty": "simple",
+    "patient_id": "ce032ded-978b-b56b-425f-5159d4a4038e",
+    "question": "What birth date is recorded for patient ce032ded-978b-b56b-425f-5159d4a4038e?",
+    "expected_tools": [
+      "get_patient"
+    ],
+    "description": "Patient-09's birth_date field is 1988-01-30.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "patient",
+        "value": "1988-01-30",
+        "source_tool": "get_patient",
+        "resource_id": null
+      }
+    ]
+  },
+  {
+    "case_id": "patient-03",
+    "category": "patient",
+    "case_type": "AGENT",
+    "difficulty": "simple",
+    "patient_id": "2c622c62-af49-25e3-4f67-3ab19a455bb2",
+    "question": "What name is recorded for patient 2c622c62-af49-25e3-4f67-3ab19a455bb2?",
+    "expected_tools": [
+      "get_patient"
+    ],
+    "description": "Patient-13's name field is Isaac321 Marks830.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "patient",
+        "value": "Isaac321 Marks830",
+        "source_tool": "get_patient",
+        "resource_id": null
+      }
+    ]
+  },
+  {
+    "case_id": "patient-04",
+    "category": "patient",
+    "case_type": "AGENT",
+    "difficulty": "simple",
+    "patient_id": "423a9252-21e3-6141-4207-46a9066fd7f4",
+    "question": "What gender is recorded for patient 423a9252-21e3-6141-4207-46a9066fd7f4?",
+    "expected_tools": [
+      "get_patient"
+    ],
+    "description": "Patient-16's gender field is female.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "patient",
+        "value": "female",
+        "source_tool": "get_patient",
+        "resource_id": null
+      }
+    ]
+  },
+  {
+    "case_id": "patient-05",
+    "category": "patient",
+    "case_type": "AGENT",
+    "difficulty": "simple",
+    "patient_id": "a57b5df9-090b-3367-e302-89f6c9660923",
+    "question": "What birth date is recorded for patient a57b5df9-090b-3367-e302-89f6c9660923?",
+    "expected_tools": [
+      "get_patient"
+    ],
+    "description": "Patient-04's birth_date field is 1994-05-01.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "patient",
+        "value": "1994-05-01",
+        "source_tool": "get_patient",
+        "resource_id": null
+      }
+    ]
+  },
+  {
+    "case_id": "empty-evidence-01",
+    "category": "empty_evidence",
+    "case_type": "AGENT",
+    "difficulty": "negative",
+    "patient_id": "423a9252-21e3-6141-4207-46a9066fd7f4",
+    "question": "What allergies are recorded for patient 423a9252-21e3-6141-4207-46a9066fd7f4?",
+    "expected_tools": [
+      "get_allergies"
+    ],
+    "description": "Patient-16 has zero recorded allergies.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": []
+  },
+  {
+    "case_id": "empty-evidence-02",
+    "category": "empty_evidence",
+    "case_type": "AGENT",
+    "difficulty": "negative",
+    "patient_id": "faac724a-a9e9-be66-fe1e-3044dc0ba8ea",
+    "question": "What allergies are recorded for patient faac724a-a9e9-be66-fe1e-3044dc0ba8ea?",
+    "expected_tools": [
+      "get_allergies"
+    ],
+    "description": "Patient-05 has zero recorded allergies.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": []
+  },
+  {
+    "case_id": "empty-evidence-03",
+    "category": "empty_evidence",
+    "case_type": "AGENT",
+    "difficulty": "negative",
+    "patient_id": "7d5e31d3-163b-4a77-576b-1ed21adf8c09",
+    "question": "What medications are recorded for patient 7d5e31d3-163b-4a77-576b-1ed21adf8c09?",
+    "expected_tools": [
+      "get_medications"
+    ],
+    "description": "Patient-08 has zero recorded medications.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": []
+  },
+  {
+    "case_id": "empty-evidence-04",
+    "category": "empty_evidence",
+    "case_type": "AGENT",
+    "difficulty": "negative",
+    "patient_id": "d8e3a701-d108-74ff-2ce3-156537276a14",
+    "question": "What medications are recorded for patient d8e3a701-d108-74ff-2ce3-156537276a14?",
+    "expected_tools": [
+      "get_medications"
+    ],
+    "description": "Patient-10 has zero recorded medications.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": []
+  },
+  {
+    "case_id": "invalid-patient-01",
+    "category": "invalid_patient",
+    "case_type": "AGENT",
+    "difficulty": "error",
+    "patient_id": "does-not-exist-999",
+    "question": "What allergies are recorded for patient does-not-exist-999?",
+    "expected_tools": [
+      "get_allergies"
+    ],
+    "description": "Unknown patient ID; must not fabricate 'no allergies'.",
+    "expected_status": "UNVERIFIABLE",
+    "expected_evidence_facts": []
+  },
+  {
+    "case_id": "invalid-patient-02",
+    "category": "invalid_patient",
+    "case_type": "AGENT",
+    "difficulty": "error",
+    "patient_id": "does-not-exist-999",
+    "question": "What medications are recorded for patient does-not-exist-999?",
+    "expected_tools": [
+      "get_medications"
+    ],
+    "description": "Unknown patient ID; must not fabricate 'no medications'.",
+    "expected_status": "UNVERIFIABLE",
+    "expected_evidence_facts": []
+  },
+  {
+    "case_id": "multi-tool-01",
+    "category": "multi_tool",
+    "case_type": "AGENT",
+    "difficulty": "multi_tool",
+    "patient_id": "6895f047-ab31-c293-b335-374256e01eb1",
+    "question": "What allergies and medications are recorded for patient 6895f047-ab31-c293-b335-374256e01eb1?",
+    "expected_tools": [
+      "get_allergies",
+      "get_medications"
+    ],
+    "description": "Requires calling two tools to fully answer.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "allergy",
+        "value": "Fish (substance)",
+        "source_tool": "get_allergies",
+        "resource_id": "51a7390e-6e25-9215-218a-3682cf5292a0"
+      },
+      {
+        "category": "medication",
+        "value": "Loratadine 5 MG Chewable Tablet",
+        "source_tool": "get_medications",
+        "resource_id": "9cc52816-50b3-e06f-d907-051b3e0fb17c"
+      }
+    ]
+  },
+  {
+    "case_id": "multi-tool-02",
+    "category": "multi_tool",
+    "case_type": "AGENT",
+    "difficulty": "multi_tool",
+    "patient_id": "6895f047-ab31-c293-b335-374256e01eb1",
+    "question": "What conditions and first recorded blood pressure are present for patient 6895f047-ab31-c293-b335-374256e01eb1?",
+    "expected_tools": [
+      "get_conditions",
+      "get_observations"
+    ],
+    "description": "Requires calling two tools to fully answer.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "condition",
+        "value": "Acute viral pharyngitis (disorder)",
+        "source_tool": "get_conditions",
+        "resource_id": "f50c513b-137a-7d4d-195c-966851772c5e"
+      },
+      {
+        "category": "observation",
+        "value": "128/81 mmHg",
+        "source_tool": "get_observations",
+        "resource_id": null
+      }
+    ]
+  },
+  {
+    "case_id": "multi-tool-03",
+    "category": "multi_tool",
+    "case_type": "AGENT",
+    "difficulty": "multi_tool",
+    "patient_id": "fab540db-3bc8-bbf8-69bc-5d8a9dbb752f",
+    "question": "What medications and conditions are recorded for patient fab540db-3bc8-bbf8-69bc-5d8a9dbb752f?",
+    "expected_tools": [
+      "get_medications",
+      "get_conditions"
+    ],
+    "description": "Requires calling two tools to fully answer.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "medication",
+        "value": "Cefuroxime 250 MG Oral Tablet",
+        "source_tool": "get_medications",
+        "resource_id": "789dd8d6-2f5b-5a40-6efb-3233bad675f5"
+      },
+      {
+        "category": "condition",
+        "value": "Otitis media",
+        "source_tool": "get_conditions",
+        "resource_id": "3110f2d2-6f14-0e69-044b-be82c2e07095"
+      }
+    ]
+  },
+  {
+    "case_id": "multi-tool-04",
+    "category": "multi_tool",
+    "case_type": "AGENT",
+    "difficulty": "multi_tool",
+    "patient_id": "ce032ded-978b-b56b-425f-5159d4a4038e",
+    "question": "What medications and conditions are recorded for patient ce032ded-978b-b56b-425f-5159d4a4038e?",
+    "expected_tools": [
+      "get_medications",
+      "get_conditions"
+    ],
+    "description": "Requires calling two tools to fully answer.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "medication",
+        "value": "Diazepam 5 MG Oral Tablet",
+        "source_tool": "get_medications",
+        "resource_id": "1c5d6851-e4e9-b798-5fad-e78ccc0b1e53"
+      },
+      {
+        "category": "condition",
+        "value": "Seizure disorder",
+        "source_tool": "get_conditions",
+        "resource_id": "90a40458-61b4-34ad-8fea-d8747cc90e57"
+      }
+    ]
+  },
+  {
+    "case_id": "multi-tool-05",
+    "category": "multi_tool",
+    "case_type": "AGENT",
+    "difficulty": "multi_tool",
+    "patient_id": "d1f767cc-a980-8bd9-8a1b-f7ada327b40c",
+    "question": "What medications are recorded and what is the first body height for patient d1f767cc-a980-8bd9-8a1b-f7ada327b40c?",
+    "expected_tools": [
+      "get_medications",
+      "get_observations"
+    ],
+    "description": "Requires calling two tools to fully answer.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "medication",
+        "value": "Amoxicillin 500 MG Oral Tablet",
+        "source_tool": "get_medications",
+        "resource_id": "587b0e3b-4831-281f-343f-987b2290557b"
+      }
+    ]
+  },
+  {
+    "case_id": "multi-tool-06",
+    "category": "multi_tool",
+    "case_type": "AGENT",
+    "difficulty": "multi_tool",
+    "patient_id": "b3c96d58-b033-6bc7-a65f-3acd85698fd6",
+    "question": "What is the patient's gender, and what medications are recorded for patient b3c96d58-b033-6bc7-a65f-3acd85698fd6?",
+    "expected_tools": [
+      "get_patient",
+      "get_medications"
+    ],
+    "description": "Requires calling two tools to fully answer.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "patient",
+        "value": "female",
+        "source_tool": "get_patient",
+        "resource_id": null
+      },
+      {
+        "category": "medication",
+        "value": "Amoxicillin 500 MG Oral Tablet",
+        "source_tool": "get_medications",
+        "resource_id": "7c9919e6-1770-fc3c-32de-f523de3bab4a"
+      }
+    ]
+  },
+  {
+    "case_id": "multi-tool-07",
+    "category": "multi_tool",
+    "case_type": "AGENT",
+    "difficulty": "multi_tool",
+    "patient_id": "f4018f25-2220-b846-1dea-5d0818e0baea",
+    "question": "What medications and conditions are recorded for patient f4018f25-2220-b846-1dea-5d0818e0baea?",
+    "expected_tools": [
+      "get_medications",
+      "get_conditions"
+    ],
+    "description": "Requires calling two tools to fully answer.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "medication",
+        "value": "Carbamazepine[Tegretol]",
+        "source_tool": "get_medications",
+        "resource_id": "7a07af39-92ae-a369-cfca-ffab67cc46ae"
+      },
+      {
+        "category": "condition",
+        "value": "Acute bronchitis (disorder)",
+        "source_tool": "get_conditions",
+        "resource_id": "88ce1c71-34da-2e72-794b-be741e1a7ef7"
+      }
+    ]
+  },
+  {
+    "case_id": "verifier-challenge-01",
+    "category": "verifier_challenge",
+    "case_type": "VERIFIER_CHALLENGE",
+    "difficulty": "negative",
+    "patient_id": "6895f047-ab31-c293-b335-374256e01eb1",
+    "question": "Intentional contradiction test: does MEVA catch a false 'no allergies' claim for a patient who actually has 7 recorded allergies?",
+    "expected_tools": [],
+    "description": "Feeds a deliberately wrong 'no allergies' claim straight into MEVA's verifier.",
+    "expected_status": "CONTRADICTED",
+    "expected_evidence_facts": [],
+    "injected_claim": {
+      "text": "No allergies are recorded for this patient.",
+      "patient_id": "6895f047-ab31-c293-b335-374256e01eb1",
+      "category": "allergy",
+      "value": null,
+      "assertion": "absent"
+    }
+  },
+  {
+    "case_id": "verifier-challenge-02",
+    "category": "verifier_challenge",
+    "case_type": "VERIFIER_CHALLENGE",
+    "difficulty": "negative",
+    "patient_id": "6895f047-ab31-c293-b335-374256e01eb1",
+    "question": "Intentional unsupported-claim test: does MEVA correctly flag a claimed Aspirin allergy that isn't recorded?",
+    "expected_tools": [],
+    "description": "Feeds a deliberately wrong 'Aspirin allergy' claim into MEVA's verifier.",
+    "expected_status": "UNSUPPORTED",
+    "expected_evidence_facts": [],
+    "injected_claim": {
+      "text": "The patient has an Aspirin allergy.",
+      "patient_id": "6895f047-ab31-c293-b335-374256e01eb1",
+      "category": "allergy",
+      "value": "Aspirin",
+      "assertion": "present"
+    }
+  },
+  {
+    "case_id": "verifier-challenge-03",
+    "category": "verifier_challenge",
+    "case_type": "VERIFIER_CHALLENGE",
+    "difficulty": "negative",
+    "patient_id": "6895f047-ab31-c293-b335-374256e01eb1",
+    "question": "Intentional interpretation test: does MEVA refuse to verify a clinical judgement about a recorded blood pressure?",
+    "expected_tools": [],
+    "description": "Feeds a clinical-interpretation claim into MEVA's verifier \u2014 must be UNVERIFIABLE.",
+    "expected_status": "UNVERIFIABLE",
+    "expected_evidence_facts": [],
+    "injected_claim": {
+      "text": "This patient's blood pressure of 128/81 mmHg is dangerously high.",
+      "patient_id": "6895f047-ab31-c293-b335-374256e01eb1",
+      "category": "observation",
+      "value": null,
+      "assertion": "interpretation"
+    }
+  },
+  {
+    "case_id": "verifier-challenge-04",
+    "category": "verifier_challenge",
+    "case_type": "VERIFIER_CHALLENGE",
+    "difficulty": "negative",
+    "patient_id": "6895f047-ab31-c293-b335-374256e01eb1",
+    "question": "Intentional attribute-contradiction test (Stage 7B.5): does MEVA catch a false 'high criticality' claim about the Fish allergy, whose real recorded criticality is 'low'?",
+    "expected_tools": [],
+    "description": "Feeds a deliberately wrong allergy-criticality attribute claim into MEVA's verifier.",
+    "expected_status": "CONTRADICTED",
+    "expected_evidence_facts": [],
+    "injected_claim": {
+      "text": "The Fish allergy has high criticality.",
+      "patient_id": "6895f047-ab31-c293-b335-374256e01eb1",
+      "category": "allergy",
+      "value": "Fish",
+      "assertion": "attribute",
+      "attribute": "criticality",
+      "attribute_value": "high"
+    }
+  }
+]

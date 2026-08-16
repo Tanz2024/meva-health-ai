@@ -1,0 +1,11 @@
+# Minimal Streamlit configuration for MEVA's browser sandbox (Stage 8C).
+# No secrets, no telemetry opt-ins, no external integrations here.
+
+[browser]
+gatherUsageStats = false
+
+[client]
+showErrorDetails = false
+
+[theme]
+base = "light"

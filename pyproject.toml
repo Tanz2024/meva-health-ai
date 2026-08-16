@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "meva-health-ai"
+version = "0.1.0"
+description = "MEVA — Medical Evidence Verification Agent: open-source infrastructure for evaluating how AI agents retrieve and use medical evidence."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+keywords = [
+    "fhir",
+    "healthcare-ai",
+    "llm-evaluation",
+    "benchmark",
+    "synthetic-data",
+    "model-context-protocol",
+    "evidence-grounding",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Healthcare Industry",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Testing",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+]
+dependencies = [
+    "mcp[cli]>=1.2.0",
+    "langgraph>=1.0.0",
+]
+
+[project.optional-dependencies]
+# Stage 8C browser sandbox — kept optional so FHIR/MCP/benchmarking/verification
+# work stays installable without pulling in a UI framework. Install with:
+#   pip install -e ".[playground]"
+playground = [
+    "streamlit>=1.38.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]

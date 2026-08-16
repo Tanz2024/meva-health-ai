@@ -1,0 +1,28 @@
+# Public metadata filled in Stage 8E1. `date-released` is intentionally
+# OMITTED (not fabricated) — CFF 1.2.0 does not require it, and it will be
+# added once the actual v0.1.0 GitHub Release is published (see
+# docs/publishing-checklist.md). No email address is published for this
+# project by the maintainer's request; ORCID was declined ("none").
+
+cff-version: 1.2.0
+message: "If you use MEVA in your work, please cite it as below."
+title: "MEVA — Medical Evidence Verification Agent"
+abstract: >
+  MEVA is an open-source research and engineering framework for evaluating
+  whether AI agents retrieve and faithfully use medical evidence from
+  synthetic FHIR records, using a deterministic (non-AI) evidence verifier.
+  It is not clinically validated and is not a medical device.
+version: 0.1.0
+license: Apache-2.0
+repository-code: "https://github.com/Tanz2024/meva-health-ai"
+url: "https://github.com/Tanz2024/meva-health-ai"
+authors:
+  - name: "Tanzim Bin Zahir"
+keywords:
+  - fhir
+  - healthcare-ai
+  - llm-evaluation
+  - benchmark
+  - synthetic-data
+  - model-context-protocol
+  - evidence-grounding

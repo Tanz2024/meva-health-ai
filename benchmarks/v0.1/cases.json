@@ -1,0 +1,129 @@
+[
+  {
+    "case_id": "allergy-01",
+    "category": "allergy",
+    "patient_id": "6895f047-ab31-c293-b335-374256e01eb1",
+    "question": "What allergies are recorded for patient 6895f047-ab31-c293-b335-374256e01eb1?",
+    "expected_tools": ["get_allergies"],
+    "expected_evidence": ["Fish (substance)"],
+    "description": "This Synthea patient has 7 recorded allergies, including Fish.",
+    "expected_status": "SUPPORTED"
+  },
+  {
+    "case_id": "allergy-02",
+    "category": "allergy",
+    "patient_id": "6895f047-ab31-c293-b335-374256e01eb1",
+    "question": "Does patient 6895f047-ab31-c293-b335-374256e01eb1 have a mold allergy recorded?",
+    "expected_tools": ["get_allergies"],
+    "expected_evidence": ["Mold (organism)"],
+    "description": "Same patient's allergy list includes Mold (organism).",
+    "expected_status": "SUPPORTED"
+  },
+  {
+    "case_id": "medication-01",
+    "category": "medication",
+    "patient_id": "6895f047-ab31-c293-b335-374256e01eb1",
+    "question": "What medications are recorded for patient 6895f047-ab31-c293-b335-374256e01eb1?",
+    "expected_tools": ["get_medications"],
+    "expected_evidence": ["Loratadine 5 MG Chewable Tablet"],
+    "description": "This patient has two recorded medication requests; Loratadine is one of them.",
+    "expected_status": "SUPPORTED"
+  },
+  {
+    "case_id": "medication-02",
+    "category": "medication",
+    "patient_id": "6895f047-ab31-c293-b335-374256e01eb1",
+    "question": "Is Epinephrine recorded as a medication for patient 6895f047-ab31-c293-b335-374256e01eb1?",
+    "expected_tools": ["get_medications"],
+    "expected_evidence": ["NDA020800 0.3 ML Epinephrine 1 MG/ML Auto-Injector"],
+    "description": "The patient's second recorded medication is an Epinephrine auto-injector.",
+    "expected_status": "SUPPORTED"
+  },
+  {
+    "case_id": "condition-01",
+    "category": "condition",
+    "patient_id": "6895f047-ab31-c293-b335-374256e01eb1",
+    "question": "What conditions are recorded for patient 6895f047-ab31-c293-b335-374256e01eb1?",
+    "expected_tools": ["get_conditions"],
+    "expected_evidence": ["Acute viral pharyngitis (disorder)"],
+    "description": "This patient has one recorded condition: Acute viral pharyngitis.",
+    "expected_status": "SUPPORTED"
+  },
+  {
+    "case_id": "condition-02",
+    "category": "condition",
+    "patient_id": "363f50e2-9771-dfb4-1ff5-3d7db24b9ada",
+    "question": "What conditions are recorded for patient 363f50e2-9771-dfb4-1ff5-3d7db24b9ada?",
+    "expected_tools": ["get_conditions"],
+    "expected_evidence": [],
+    "description": "This patient (patient-01) has zero recorded conditions in the Synthea bundle.",
+    "expected_status": "SUPPORTED"
+  },
+  {
+    "case_id": "observation-01",
+    "category": "observation",
+    "patient_id": "6895f047-ab31-c293-b335-374256e01eb1",
+    "question": "What is the recorded blood pressure for patient 6895f047-ab31-c293-b335-374256e01eb1?",
+    "expected_tools": ["get_observations"],
+    "expected_evidence": ["128/81 mmHg"],
+    "description": "This patient's blood pressure observation is recorded as 128/81 mmHg.",
+    "expected_status": "SUPPORTED"
+  },
+  {
+    "case_id": "observation-02",
+    "category": "observation",
+    "patient_id": "363f50e2-9771-dfb4-1ff5-3d7db24b9ada",
+    "question": "What is the recorded body height for patient 363f50e2-9771-dfb4-1ff5-3d7db24b9ada?",
+    "expected_tools": ["get_observations"],
+    "expected_evidence": ["48.2 cm"],
+    "description": "This patient's (patient-01) recorded Body Height observation is 48.2 cm.",
+    "expected_status": "SUPPORTED"
+  },
+  {
+    "case_id": "empty-evidence-01",
+    "category": "empty_evidence",
+    "patient_id": "c28b00a3-54c0-21ba-4ed7-de871f1b157f",
+    "question": "What allergies are recorded for patient c28b00a3-54c0-21ba-4ed7-de871f1b157f?",
+    "expected_tools": ["get_allergies"],
+    "expected_evidence": [],
+    "description": "This patient (patient-02) has zero recorded allergies — MEVA should report this honestly, not invent any.",
+    "expected_status": "SUPPORTED"
+  },
+  {
+    "case_id": "invalid-patient-01",
+    "category": "invalid_patient",
+    "patient_id": "does-not-exist-999",
+    "question": "What allergies are recorded for patient does-not-exist-999?",
+    "expected_tools": ["get_allergies"],
+    "expected_evidence": [],
+    "description": "This patient ID does not exist in MEVA's synthetic data. MEVA must not fabricate a 'no allergies' answer for an unknown patient.",
+    "expected_status": "UNVERIFIABLE"
+  },
+  {
+    "case_id": "contradiction-01",
+    "category": "contradiction",
+    "patient_id": "6895f047-ab31-c293-b335-374256e01eb1",
+    "question": "Intentional contradiction test: does MEVA catch a false 'no allergies' claim for a patient who actually has 7 recorded allergies?",
+    "expected_tools": [],
+    "expected_evidence": ["Fish (substance)", "Mold (organism)"],
+    "description": "This case bypasses the live model and feeds a deliberately wrong claim ('no allergies recorded') straight into MEVA's verifier, to prove the deterministic verifier — not the AI — is what catches the error.",
+    "expected_status": "CONTRADICTED",
+    "injected_claim": {
+      "text": "No allergies are recorded for this patient.",
+      "patient_id": "6895f047-ab31-c293-b335-374256e01eb1",
+      "category": "allergy",
+      "value": null,
+      "assertion": "absent"
+    }
+  },
+  {
+    "case_id": "multi-tool-01",
+    "category": "multi_tool",
+    "patient_id": "6895f047-ab31-c293-b335-374256e01eb1",
+    "question": "What allergies and medications are recorded for patient 6895f047-ab31-c293-b335-374256e01eb1?",
+    "expected_tools": ["get_allergies", "get_medications"],
+    "expected_evidence": ["Fish (substance)", "Loratadine 5 MG Chewable Tablet"],
+    "description": "This question requires calling two different tools to fully answer.",
+    "expected_status": "SUPPORTED"
+  }
+]

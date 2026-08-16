@@ -1,0 +1,89 @@
+[
+  {
+    "id": "positive-allergy",
+    "question": "What allergies are recorded for patient fixture-001?",
+    "patient_id": "fixture-001",
+    "answer": "The patient has a recorded Penicillin allergy.",
+    "expected_claims": [
+      {"text": "Penicillin allergy recorded", "patient_id": "fixture-001", "category": "allergy", "value": "Penicillin", "assertion": "present"}
+    ]
+  },
+  {
+    "id": "negative-allergy",
+    "question": "What allergies are recorded for patient fixture-002?",
+    "patient_id": "fixture-002",
+    "answer": "No allergies are recorded for this patient.",
+    "expected_claims": [
+      {"text": "No allergies recorded", "patient_id": "fixture-002", "category": "allergy", "value": null, "assertion": "absent"}
+    ]
+  },
+  {
+    "id": "medication",
+    "question": "Is Lisinopril recorded as a medication for patient fixture-003?",
+    "patient_id": "fixture-003",
+    "answer": "Lisinopril is recorded as a medication for this patient.",
+    "expected_claims": [
+      {"text": "Lisinopril recorded as a medication", "patient_id": "fixture-003", "category": "medication", "value": "Lisinopril", "assertion": "present"}
+    ]
+  },
+  {
+    "id": "condition",
+    "question": "What conditions are recorded for patient fixture-004?",
+    "patient_id": "fixture-004",
+    "answer": "The patient has a diagnosis of Hypertension on record.",
+    "expected_claims": [
+      {"text": "Hypertension recorded", "patient_id": "fixture-004", "category": "condition", "value": "Hypertension", "assertion": "present"}
+    ]
+  },
+  {
+    "id": "observation-value",
+    "question": "What is the most recent heart rate for patient fixture-005?",
+    "patient_id": "fixture-005",
+    "answer": "The most recent heart rate reading is 72 bpm.",
+    "expected_claims": [
+      {"text": "Heart rate 72 bpm", "patient_id": "fixture-005", "category": "observation", "value": "Heart Rate: 72 bpm", "assertion": "value"}
+    ]
+  },
+  {
+    "id": "observation-absence",
+    "question": "What is the first recorded blood pressure for patient fixture-006?",
+    "patient_id": "fixture-006",
+    "answer": "No blood pressure observation was found for this patient.",
+    "expected_claims": [
+      {"text": "No blood pressure observation found", "patient_id": "fixture-006", "category": "observation", "value": "Blood Pressure", "assertion": "absent"}
+    ]
+  },
+  {
+    "id": "attribute-claim",
+    "question": "What is the criticality of the Penicillin allergy for patient fixture-007?",
+    "patient_id": "fixture-007",
+    "answer": "The Penicillin allergy has a criticality of high.",
+    "expected_claims": [
+      {"text": "Penicillin allergy criticality is high", "patient_id": "fixture-007", "category": "allergy", "value": "Penicillin", "assertion": "attribute", "attribute": "criticality", "attribute_value": "high"}
+    ]
+  },
+  {
+    "id": "multi-claim-answer",
+    "question": "What allergies and medications are recorded for patient fixture-008?",
+    "patient_id": "fixture-008",
+    "answer": "The patient has a recorded Peanut allergy and takes Ibuprofen.",
+    "expected_claims": [
+      {"text": "Peanut allergy recorded", "patient_id": "fixture-008", "category": "allergy", "value": "Peanut", "assertion": "present"},
+      {"text": "Ibuprofen recorded as a medication", "patient_id": "fixture-008", "category": "medication", "value": "Ibuprofen", "assertion": "present"}
+    ]
+  },
+  {
+    "id": "uncertain-statement",
+    "question": "Does the patient fixture-009 have any allergies?",
+    "patient_id": "fixture-009",
+    "answer": "The record may possibly mention an allergy, but it is unclear from the available information.",
+    "expected_claims": []
+  },
+  {
+    "id": "no-factual-claim",
+    "question": "What allergies are recorded for patient fixture-010?",
+    "patient_id": "fixture-010",
+    "answer": "I'm not sure what you're asking — could you clarify the patient ID?",
+    "expected_claims": []
+  }
+]

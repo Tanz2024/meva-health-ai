@@ -1,0 +1,1103 @@
+[
+  {
+    "case_id": "allergy-01",
+    "category": "allergy",
+    "case_type": "AGENT",
+    "difficulty": "simple",
+    "patient_id": "c053e996-a4c4-6c02-e2b6-284227156c67",
+    "question": "Does patient c053e996-a4c4-6c02-e2b6-284227156c67 have a recorded allergy to Peanut?",
+    "expected_tools": [
+      "get_allergies"
+    ],
+    "description": "Real allergy: Peanut (substance).",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "allergy",
+        "value": "Peanut (substance)",
+        "source_tool": "get_allergies",
+        "resource_id": "c053e996-a4c4-6c02-1c16-154b75fef1f0"
+      }
+    ]
+  },
+  {
+    "case_id": "allergy-02",
+    "category": "allergy",
+    "case_type": "AGENT",
+    "difficulty": "simple",
+    "patient_id": "c0a47dee-cc72-29ce-df5a-ea6d306c36a4",
+    "question": "Does patient c0a47dee-cc72-29ce-df5a-ea6d306c36a4 have a recorded allergy to Peanut?",
+    "expected_tools": [
+      "get_allergies"
+    ],
+    "description": "Real allergy: Peanut (substance).",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "allergy",
+        "value": "Peanut (substance)",
+        "source_tool": "get_allergies",
+        "resource_id": "c0a47dee-cc72-29ce-5203-c0eb146e9504"
+      }
+    ]
+  },
+  {
+    "case_id": "allergy-03",
+    "category": "allergy",
+    "case_type": "AGENT",
+    "difficulty": "simple",
+    "patient_id": "6fbddf55-7096-b883-7cd3-260f27953080",
+    "question": "Does patient 6fbddf55-7096-b883-7cd3-260f27953080 have a recorded allergy to Sulfamethoxazole / Trimethoprim?",
+    "expected_tools": [
+      "get_allergies"
+    ],
+    "description": "Real allergy: Sulfamethoxazole / Trimethoprim.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "allergy",
+        "value": "Sulfamethoxazole / Trimethoprim",
+        "source_tool": "get_allergies",
+        "resource_id": "6fbddf55-7096-b883-e467-75e039025c41"
+      }
+    ]
+  },
+  {
+    "case_id": "allergy-04",
+    "category": "allergy",
+    "case_type": "AGENT",
+    "difficulty": "simple",
+    "patient_id": "5ba0a3f3-32f7-02b1-ec6a-8f568923954c",
+    "question": "Does patient 5ba0a3f3-32f7-02b1-ec6a-8f568923954c have a recorded allergy to Mold?",
+    "expected_tools": [
+      "get_allergies"
+    ],
+    "description": "Real allergy: Mold (organism).",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "allergy",
+        "value": "Mold (organism)",
+        "source_tool": "get_allergies",
+        "resource_id": "5ba0a3f3-32f7-02b1-cff5-94a186d7ba98"
+      }
+    ]
+  },
+  {
+    "case_id": "allergy-05",
+    "category": "allergy",
+    "case_type": "AGENT",
+    "difficulty": "simple",
+    "patient_id": "080b069b-5108-46b6-ecef-6aacd3b9ef3f",
+    "question": "Does patient 080b069b-5108-46b6-ecef-6aacd3b9ef3f have a recorded allergy to Bee venom?",
+    "expected_tools": [
+      "get_allergies"
+    ],
+    "description": "Real allergy: Bee venom (substance).",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "allergy",
+        "value": "Bee venom (substance)",
+        "source_tool": "get_allergies",
+        "resource_id": "080b069b-5108-46b6-16df-9b103e346ea5"
+      }
+    ]
+  },
+  {
+    "case_id": "allergy-06",
+    "category": "allergy",
+    "case_type": "AGENT",
+    "difficulty": "simple",
+    "patient_id": "f95a6723-14a5-c4b6-78df-fa97f7ab361c",
+    "question": "Does patient f95a6723-14a5-c4b6-78df-fa97f7ab361c have a recorded allergy to Mold?",
+    "expected_tools": [
+      "get_allergies"
+    ],
+    "description": "Real allergy: Mold (organism).",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "allergy",
+        "value": "Mold (organism)",
+        "source_tool": "get_allergies",
+        "resource_id": "f95a6723-14a5-c4b6-8125-106ae67ad9f6"
+      }
+    ]
+  },
+  {
+    "case_id": "medication-01",
+    "category": "medication",
+    "case_type": "AGENT",
+    "difficulty": "simple",
+    "patient_id": "c053e996-a4c4-6c02-e2b6-284227156c67",
+    "question": "Is Amoxicillin 500 MG Oral Tablet recorded as a medication for patient c053e996-a4c4-6c02-e2b6-284227156c67?",
+    "expected_tools": [
+      "get_medications"
+    ],
+    "description": "Real medication: Amoxicillin 500 MG Oral Tablet.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "medication",
+        "value": "Amoxicillin 500 MG Oral Tablet",
+        "source_tool": "get_medications",
+        "resource_id": "c053e996-a4c4-6c02-5965-122e7e3c6c21"
+      }
+    ]
+  },
+  {
+    "case_id": "medication-02",
+    "category": "medication",
+    "case_type": "AGENT",
+    "difficulty": "simple",
+    "patient_id": "c0a47dee-cc72-29ce-df5a-ea6d306c36a4",
+    "question": "Is Terfenadine 60 MG Oral Tablet recorded as a medication for patient c0a47dee-cc72-29ce-df5a-ea6d306c36a4?",
+    "expected_tools": [
+      "get_medications"
+    ],
+    "description": "Real medication: Terfenadine 60 MG Oral Tablet.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "medication",
+        "value": "Terfenadine 60 MG Oral Tablet",
+        "source_tool": "get_medications",
+        "resource_id": "c0a47dee-cc72-29ce-5fbf-d07bafe5829f"
+      }
+    ]
+  },
+  {
+    "case_id": "medication-03",
+    "category": "medication",
+    "case_type": "AGENT",
+    "difficulty": "simple",
+    "patient_id": "4f083ce3-f12b-bb4b-7353-e17f0cd55b0a",
+    "question": "Is Acetaminophen 325 MG Oral Tablet recorded as a medication for patient 4f083ce3-f12b-bb4b-7353-e17f0cd55b0a?",
+    "expected_tools": [
+      "get_medications"
+    ],
+    "description": "Real medication: Acetaminophen 325 MG Oral Tablet.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "medication",
+        "value": "Acetaminophen 325 MG Oral Tablet",
+        "source_tool": "get_medications",
+        "resource_id": "4f083ce3-f12b-bb4b-6696-d60c86222835"
+      }
+    ]
+  },
+  {
+    "case_id": "medication-04",
+    "category": "medication",
+    "case_type": "AGENT",
+    "difficulty": "simple",
+    "patient_id": "5e688e99-61b3-5c88-3f60-21df8aaced27",
+    "question": "Is Unknown medication recorded as a medication for patient 5e688e99-61b3-5c88-3f60-21df8aaced27?",
+    "expected_tools": [
+      "get_medications"
+    ],
+    "description": "Real medication: Unknown medication.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "medication",
+        "value": "Unknown medication",
+        "source_tool": "get_medications",
+        "resource_id": "5e688e99-61b3-5c88-319a-30a7657c4703"
+      }
+    ]
+  },
+  {
+    "case_id": "medication-05",
+    "category": "medication",
+    "case_type": "AGENT",
+    "difficulty": "simple",
+    "patient_id": "982750f4-569b-5949-196b-60699bdda3fb",
+    "question": "Is Trinessa 28 Day Pack recorded as a medication for patient 982750f4-569b-5949-196b-60699bdda3fb?",
+    "expected_tools": [
+      "get_medications"
+    ],
+    "description": "Real medication: Trinessa 28 Day Pack.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "medication",
+        "value": "Trinessa 28 Day Pack",
+        "source_tool": "get_medications",
+        "resource_id": "982750f4-569b-5949-4235-1f06cb8d6b3f"
+      }
+    ]
+  },
+  {
+    "case_id": "medication-06",
+    "category": "medication",
+    "case_type": "AGENT",
+    "difficulty": "simple",
+    "patient_id": "76b20010-c318-5754-8c85-983aa538522f",
+    "question": "Is Acetaminophen 325 MG Oral Tablet recorded as a medication for patient 76b20010-c318-5754-8c85-983aa538522f?",
+    "expected_tools": [
+      "get_medications"
+    ],
+    "description": "Real medication: Acetaminophen 325 MG Oral Tablet.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "medication",
+        "value": "Acetaminophen 325 MG Oral Tablet",
+        "source_tool": "get_medications",
+        "resource_id": "76b20010-c318-5754-103d-a5a1fa74b1eb"
+      }
+    ]
+  },
+  {
+    "case_id": "medication-07",
+    "category": "medication",
+    "case_type": "AGENT",
+    "difficulty": "simple",
+    "patient_id": "947c82ee-1735-c9ed-8210-38cb93d8070c",
+    "question": "Is Ibuprofen 100 MG Oral Tablet recorded as a medication for patient 947c82ee-1735-c9ed-8210-38cb93d8070c?",
+    "expected_tools": [
+      "get_medications"
+    ],
+    "description": "Real medication: Ibuprofen 100 MG Oral Tablet.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "medication",
+        "value": "Ibuprofen 100 MG Oral Tablet",
+        "source_tool": "get_medications",
+        "resource_id": "947c82ee-1735-c9ed-b14b-436bc2444aa5"
+      }
+    ]
+  },
+  {
+    "case_id": "medication-08",
+    "category": "medication",
+    "case_type": "AGENT",
+    "difficulty": "simple",
+    "patient_id": "d3727ff2-5d7b-347f-d78c-edc4323cf890",
+    "question": "Is Unknown medication recorded as a medication for patient d3727ff2-5d7b-347f-d78c-edc4323cf890?",
+    "expected_tools": [
+      "get_medications"
+    ],
+    "description": "Real medication: Unknown medication.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "medication",
+        "value": "Unknown medication",
+        "source_tool": "get_medications",
+        "resource_id": "d3727ff2-5d7b-347f-b51a-b7f3bc3c11d4"
+      }
+    ]
+  },
+  {
+    "case_id": "condition-01",
+    "category": "condition",
+    "case_type": "AGENT",
+    "difficulty": "simple",
+    "patient_id": "d15b23ed-02d5-3e28-efbd-2604425317c5",
+    "question": "Does patient d15b23ed-02d5-3e28-efbd-2604425317c5 have a recorded condition of Medication review due?",
+    "expected_tools": [
+      "get_conditions"
+    ],
+    "description": "Real condition: Medication review due (situation).",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "condition",
+        "value": "Medication review due (situation)",
+        "source_tool": "get_conditions",
+        "resource_id": "d15b23ed-02d5-3e28-e386-7ab3061181f7"
+      }
+    ]
+  },
+  {
+    "case_id": "condition-02",
+    "category": "condition",
+    "case_type": "AGENT",
+    "difficulty": "simple",
+    "patient_id": "c053e996-a4c4-6c02-e2b6-284227156c67",
+    "question": "Does patient c053e996-a4c4-6c02-e2b6-284227156c67 have a recorded condition of Medication review due?",
+    "expected_tools": [
+      "get_conditions"
+    ],
+    "description": "Real condition: Medication review due (situation).",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "condition",
+        "value": "Medication review due (situation)",
+        "source_tool": "get_conditions",
+        "resource_id": "c053e996-a4c4-6c02-1e26-83438028b1dd"
+      }
+    ]
+  },
+  {
+    "case_id": "condition-03",
+    "category": "condition",
+    "case_type": "AGENT",
+    "difficulty": "simple",
+    "patient_id": "2d68ad16-268a-478c-1f84-d0f1976e1a46",
+    "question": "Does patient 2d68ad16-268a-478c-1f84-d0f1976e1a46 have a recorded condition of Medication review due?",
+    "expected_tools": [
+      "get_conditions"
+    ],
+    "description": "Real condition: Medication review due (situation).",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "condition",
+        "value": "Medication review due (situation)",
+        "source_tool": "get_conditions",
+        "resource_id": "2d68ad16-268a-478c-c548-73ce3149fc72"
+      }
+    ]
+  },
+  {
+    "case_id": "condition-04",
+    "category": "condition",
+    "case_type": "AGENT",
+    "difficulty": "simple",
+    "patient_id": "c0a47dee-cc72-29ce-df5a-ea6d306c36a4",
+    "question": "Does patient c0a47dee-cc72-29ce-df5a-ea6d306c36a4 have a recorded condition of Risk activity involvement?",
+    "expected_tools": [
+      "get_conditions"
+    ],
+    "description": "Real condition: Risk activity involvement (finding).",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "condition",
+        "value": "Risk activity involvement (finding)",
+        "source_tool": "get_conditions",
+        "resource_id": "c0a47dee-cc72-29ce-0ee5-a1d4df534142"
+      }
+    ]
+  },
+  {
+    "case_id": "condition-05",
+    "category": "condition",
+    "case_type": "AGENT",
+    "difficulty": "simple",
+    "patient_id": "4f083ce3-f12b-bb4b-7353-e17f0cd55b0a",
+    "question": "Does patient 4f083ce3-f12b-bb4b-7353-e17f0cd55b0a have a recorded condition of Medication review due?",
+    "expected_tools": [
+      "get_conditions"
+    ],
+    "description": "Real condition: Medication review due (situation).",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "condition",
+        "value": "Medication review due (situation)",
+        "source_tool": "get_conditions",
+        "resource_id": "4f083ce3-f12b-bb4b-67e1-25ed6be9e87e"
+      }
+    ]
+  },
+  {
+    "case_id": "condition-06",
+    "category": "condition",
+    "case_type": "AGENT",
+    "difficulty": "simple",
+    "patient_id": "5e688e99-61b3-5c88-3f60-21df8aaced27",
+    "question": "Does patient 5e688e99-61b3-5c88-3f60-21df8aaced27 have a recorded condition of Medication review due?",
+    "expected_tools": [
+      "get_conditions"
+    ],
+    "description": "Real condition: Medication review due (situation).",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "condition",
+        "value": "Medication review due (situation)",
+        "source_tool": "get_conditions",
+        "resource_id": "5e688e99-61b3-5c88-46a4-d2fe8b8989c1"
+      }
+    ]
+  },
+  {
+    "case_id": "condition-07",
+    "category": "condition",
+    "case_type": "AGENT",
+    "difficulty": "simple",
+    "patient_id": "982750f4-569b-5949-196b-60699bdda3fb",
+    "question": "Does patient 982750f4-569b-5949-196b-60699bdda3fb have a recorded condition of Received higher education?",
+    "expected_tools": [
+      "get_conditions"
+    ],
+    "description": "Real condition: Received higher education (finding).",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "condition",
+        "value": "Received higher education (finding)",
+        "source_tool": "get_conditions",
+        "resource_id": "982750f4-569b-5949-8010-881914ef2fcc"
+      }
+    ]
+  },
+  {
+    "case_id": "condition-08",
+    "category": "condition",
+    "case_type": "AGENT",
+    "difficulty": "simple",
+    "patient_id": "76b20010-c318-5754-8c85-983aa538522f",
+    "question": "Does patient 76b20010-c318-5754-8c85-983aa538522f have a recorded condition of Medication review due?",
+    "expected_tools": [
+      "get_conditions"
+    ],
+    "description": "Real condition: Medication review due (situation).",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "condition",
+        "value": "Medication review due (situation)",
+        "source_tool": "get_conditions",
+        "resource_id": "76b20010-c318-5754-0c69-f3baaf55f794"
+      }
+    ]
+  },
+  {
+    "case_id": "observation-01",
+    "category": "observation",
+    "case_type": "AGENT",
+    "difficulty": "simple",
+    "patient_id": "d15b23ed-02d5-3e28-efbd-2604425317c5",
+    "question": "What is the first recorded body height for patient d15b23ed-02d5-3e28-efbd-2604425317c5?",
+    "expected_tools": [
+      "get_observations"
+    ],
+    "description": "Real observation: Body Height = 53.1 cm.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "observation",
+        "value": "53.1 cm",
+        "source_tool": "get_observations",
+        "resource_id": "d15b23ed-02d5-3e28-24a1-53ee6240f03c"
+      }
+    ]
+  },
+  {
+    "case_id": "observation-02",
+    "category": "observation",
+    "case_type": "AGENT",
+    "difficulty": "simple",
+    "patient_id": "c053e996-a4c4-6c02-e2b6-284227156c67",
+    "question": "What is the first recorded body height for patient c053e996-a4c4-6c02-e2b6-284227156c67?",
+    "expected_tools": [
+      "get_observations"
+    ],
+    "description": "Real observation: Body Height = 53.4 cm.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "observation",
+        "value": "53.4 cm",
+        "source_tool": "get_observations",
+        "resource_id": "c053e996-a4c4-6c02-2cad-c36faa3d9ea7"
+      }
+    ]
+  },
+  {
+    "case_id": "observation-03",
+    "category": "observation",
+    "case_type": "AGENT",
+    "difficulty": "simple",
+    "patient_id": "2d68ad16-268a-478c-1f84-d0f1976e1a46",
+    "question": "What is the first recorded body height for patient 2d68ad16-268a-478c-1f84-d0f1976e1a46?",
+    "expected_tools": [
+      "get_observations"
+    ],
+    "description": "Real observation: Body Height = 50.7 cm.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "observation",
+        "value": "50.7 cm",
+        "source_tool": "get_observations",
+        "resource_id": "2d68ad16-268a-478c-9e0d-517374c33899"
+      }
+    ]
+  },
+  {
+    "case_id": "observation-04",
+    "category": "observation",
+    "case_type": "AGENT",
+    "difficulty": "simple",
+    "patient_id": "c0a47dee-cc72-29ce-df5a-ea6d306c36a4",
+    "question": "What is the first recorded body height for patient c0a47dee-cc72-29ce-df5a-ea6d306c36a4?",
+    "expected_tools": [
+      "get_observations"
+    ],
+    "description": "Real observation: Body Height = 177.4 cm.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "observation",
+        "value": "177.4 cm",
+        "source_tool": "get_observations",
+        "resource_id": "c0a47dee-cc72-29ce-6d85-d01915f9d11b"
+      }
+    ]
+  },
+  {
+    "case_id": "observation-05",
+    "category": "observation",
+    "case_type": "AGENT",
+    "difficulty": "simple",
+    "patient_id": "4f083ce3-f12b-bb4b-7353-e17f0cd55b0a",
+    "question": "What is the first recorded body height for patient 4f083ce3-f12b-bb4b-7353-e17f0cd55b0a?",
+    "expected_tools": [
+      "get_observations"
+    ],
+    "description": "Real observation: Body Height = 175.3 cm.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "observation",
+        "value": "175.3 cm",
+        "source_tool": "get_observations",
+        "resource_id": "4f083ce3-f12b-bb4b-482a-3f5fc5256611"
+      }
+    ]
+  },
+  {
+    "case_id": "observation-06",
+    "category": "observation",
+    "case_type": "AGENT",
+    "difficulty": "simple",
+    "patient_id": "5e688e99-61b3-5c88-3f60-21df8aaced27",
+    "question": "What is the first recorded body height for patient 5e688e99-61b3-5c88-3f60-21df8aaced27?",
+    "expected_tools": [
+      "get_observations"
+    ],
+    "description": "Real observation: Body Height = 119.3 cm.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "observation",
+        "value": "119.3 cm",
+        "source_tool": "get_observations",
+        "resource_id": "5e688e99-61b3-5c88-0cd4-806378dcf50b"
+      }
+    ]
+  },
+  {
+    "case_id": "observation-07",
+    "category": "observation",
+    "case_type": "AGENT",
+    "difficulty": "simple",
+    "patient_id": "982750f4-569b-5949-196b-60699bdda3fb",
+    "question": "What is the first recorded body height for patient 982750f4-569b-5949-196b-60699bdda3fb?",
+    "expected_tools": [
+      "get_observations"
+    ],
+    "description": "Real observation: Body Height = 158.3 cm.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "observation",
+        "value": "158.3 cm",
+        "source_tool": "get_observations",
+        "resource_id": "982750f4-569b-5949-d449-df730a0853a6"
+      }
+    ]
+  },
+  {
+    "case_id": "observation-08",
+    "category": "observation",
+    "case_type": "AGENT",
+    "difficulty": "simple",
+    "patient_id": "76b20010-c318-5754-8c85-983aa538522f",
+    "question": "What is the first recorded body height for patient 76b20010-c318-5754-8c85-983aa538522f?",
+    "expected_tools": [
+      "get_observations"
+    ],
+    "description": "Real observation: Body Height = 53.1 cm.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "observation",
+        "value": "53.1 cm",
+        "source_tool": "get_observations",
+        "resource_id": "76b20010-c318-5754-c6af-9e72c80e5a66"
+      }
+    ]
+  },
+  {
+    "case_id": "observation-09",
+    "category": "observation",
+    "case_type": "AGENT",
+    "difficulty": "simple",
+    "patient_id": "947c82ee-1735-c9ed-8210-38cb93d8070c",
+    "question": "What is the first recorded body height for patient 947c82ee-1735-c9ed-8210-38cb93d8070c?",
+    "expected_tools": [
+      "get_observations"
+    ],
+    "description": "Real observation: Body Height = 65.2 cm.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "observation",
+        "value": "65.2 cm",
+        "source_tool": "get_observations",
+        "resource_id": "947c82ee-1735-c9ed-2326-82a51a40a46d"
+      }
+    ]
+  },
+  {
+    "case_id": "observation-10",
+    "category": "observation",
+    "case_type": "AGENT",
+    "difficulty": "simple",
+    "patient_id": "d3727ff2-5d7b-347f-d78c-edc4323cf890",
+    "question": "What is the first recorded body height for patient d3727ff2-5d7b-347f-d78c-edc4323cf890?",
+    "expected_tools": [
+      "get_observations"
+    ],
+    "description": "Real observation: Body Height = 128.7 cm.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "observation",
+        "value": "128.7 cm",
+        "source_tool": "get_observations",
+        "resource_id": "d3727ff2-5d7b-347f-0ce9-fec8745b1e1a"
+      }
+    ]
+  },
+  {
+    "case_id": "patient-01",
+    "category": "patient",
+    "case_type": "AGENT",
+    "difficulty": "simple",
+    "patient_id": "d15b23ed-02d5-3e28-efbd-2604425317c5",
+    "question": "What is the recorded gender for patient d15b23ed-02d5-3e28-efbd-2604425317c5?",
+    "expected_tools": [
+      "get_patient"
+    ],
+    "description": "Real demographic: gender=male.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "patient",
+        "value": "male",
+        "source_tool": "get_patient",
+        "resource_id": null
+      }
+    ]
+  },
+  {
+    "case_id": "patient-02",
+    "category": "patient",
+    "case_type": "AGENT",
+    "difficulty": "simple",
+    "patient_id": "c053e996-a4c4-6c02-e2b6-284227156c67",
+    "question": "What is the recorded gender for patient c053e996-a4c4-6c02-e2b6-284227156c67?",
+    "expected_tools": [
+      "get_patient"
+    ],
+    "description": "Real demographic: gender=female.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "patient",
+        "value": "female",
+        "source_tool": "get_patient",
+        "resource_id": null
+      }
+    ]
+  },
+  {
+    "case_id": "patient-03",
+    "category": "patient",
+    "case_type": "AGENT",
+    "difficulty": "simple",
+    "patient_id": "2d68ad16-268a-478c-1f84-d0f1976e1a46",
+    "question": "What is the recorded gender for patient 2d68ad16-268a-478c-1f84-d0f1976e1a46?",
+    "expected_tools": [
+      "get_patient"
+    ],
+    "description": "Real demographic: gender=male.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "patient",
+        "value": "male",
+        "source_tool": "get_patient",
+        "resource_id": null
+      }
+    ]
+  },
+  {
+    "case_id": "patient-04",
+    "category": "patient",
+    "case_type": "AGENT",
+    "difficulty": "simple",
+    "patient_id": "c0a47dee-cc72-29ce-df5a-ea6d306c36a4",
+    "question": "What is the recorded gender for patient c0a47dee-cc72-29ce-df5a-ea6d306c36a4?",
+    "expected_tools": [
+      "get_patient"
+    ],
+    "description": "Real demographic: gender=male.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "patient",
+        "value": "male",
+        "source_tool": "get_patient",
+        "resource_id": null
+      }
+    ]
+  },
+  {
+    "case_id": "patient-05",
+    "category": "patient",
+    "case_type": "AGENT",
+    "difficulty": "simple",
+    "patient_id": "4f083ce3-f12b-bb4b-7353-e17f0cd55b0a",
+    "question": "What is the recorded gender for patient 4f083ce3-f12b-bb4b-7353-e17f0cd55b0a?",
+    "expected_tools": [
+      "get_patient"
+    ],
+    "description": "Real demographic: gender=male.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "patient",
+        "value": "male",
+        "source_tool": "get_patient",
+        "resource_id": null
+      }
+    ]
+  },
+  {
+    "case_id": "empty-evidence-01",
+    "category": "empty_evidence",
+    "case_type": "AGENT",
+    "difficulty": "negative",
+    "patient_id": "d15b23ed-02d5-3e28-efbd-2604425317c5",
+    "question": "What allergies are recorded for patient d15b23ed-02d5-3e28-efbd-2604425317c5?",
+    "expected_tools": [
+      "get_allergies"
+    ],
+    "description": "Patient genuinely has zero recorded allergies.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": []
+  },
+  {
+    "case_id": "empty-evidence-02",
+    "category": "empty_evidence",
+    "case_type": "AGENT",
+    "difficulty": "negative",
+    "patient_id": "2d68ad16-268a-478c-1f84-d0f1976e1a46",
+    "question": "What allergies are recorded for patient 2d68ad16-268a-478c-1f84-d0f1976e1a46?",
+    "expected_tools": [
+      "get_allergies"
+    ],
+    "description": "Patient genuinely has zero recorded allergies.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": []
+  },
+  {
+    "case_id": "empty-evidence-03",
+    "category": "empty_evidence",
+    "case_type": "AGENT",
+    "difficulty": "negative",
+    "patient_id": "4f083ce3-f12b-bb4b-7353-e17f0cd55b0a",
+    "question": "What allergies are recorded for patient 4f083ce3-f12b-bb4b-7353-e17f0cd55b0a?",
+    "expected_tools": [
+      "get_allergies"
+    ],
+    "description": "Patient genuinely has zero recorded allergies.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": []
+  },
+  {
+    "case_id": "empty-evidence-04",
+    "category": "empty_evidence",
+    "case_type": "AGENT",
+    "difficulty": "negative",
+    "patient_id": "5e688e99-61b3-5c88-3f60-21df8aaced27",
+    "question": "What allergies are recorded for patient 5e688e99-61b3-5c88-3f60-21df8aaced27?",
+    "expected_tools": [
+      "get_allergies"
+    ],
+    "description": "Patient genuinely has zero recorded allergies.",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": []
+  },
+  {
+    "case_id": "invalid-patient-01",
+    "category": "invalid_patient",
+    "case_type": "AGENT",
+    "difficulty": "error",
+    "patient_id": "00000000-0000-0000-0000-000000000000",
+    "question": "What allergies are recorded for patient 00000000-0000-0000-0000-000000000000?",
+    "expected_tools": [
+      "get_allergies"
+    ],
+    "description": "Intentional invalid patient_id sentinel \u2014 must not be silently assumed to mean 'no allergies'.",
+    "expected_status": "UNVERIFIABLE",
+    "expected_evidence_facts": []
+  },
+  {
+    "case_id": "invalid-patient-02",
+    "category": "invalid_patient",
+    "case_type": "AGENT",
+    "difficulty": "error",
+    "patient_id": "11111111-1111-1111-1111-111111111111",
+    "question": "What medications are recorded for patient 11111111-1111-1111-1111-111111111111?",
+    "expected_tools": [
+      "get_medications"
+    ],
+    "description": "Intentional invalid patient_id sentinel \u2014 must not be silently assumed to mean 'no medications'.",
+    "expected_status": "UNVERIFIABLE",
+    "expected_evidence_facts": []
+  },
+  {
+    "case_id": "multi-tool-01",
+    "category": "multi_tool",
+    "case_type": "AGENT",
+    "difficulty": "multi_tool",
+    "patient_id": "c053e996-a4c4-6c02-e2b6-284227156c67",
+    "question": "What allergies and medications are recorded for patient c053e996-a4c4-6c02-e2b6-284227156c67?",
+    "expected_tools": [
+      "get_allergies",
+      "get_medications"
+    ],
+    "description": "Needs both get_allergies (Peanut (substance)) and get_medications (Amoxicillin 500 MG Oral Tablet).",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "allergy",
+        "value": "Peanut (substance)",
+        "source_tool": "get_allergies",
+        "resource_id": "c053e996-a4c4-6c02-1c16-154b75fef1f0"
+      },
+      {
+        "category": "medication",
+        "value": "Amoxicillin 500 MG Oral Tablet",
+        "source_tool": "get_medications",
+        "resource_id": "c053e996-a4c4-6c02-5965-122e7e3c6c21"
+      }
+    ]
+  },
+  {
+    "case_id": "multi-tool-02",
+    "category": "multi_tool",
+    "case_type": "AGENT",
+    "difficulty": "multi_tool",
+    "patient_id": "c0a47dee-cc72-29ce-df5a-ea6d306c36a4",
+    "question": "What allergies and medications are recorded for patient c0a47dee-cc72-29ce-df5a-ea6d306c36a4?",
+    "expected_tools": [
+      "get_allergies",
+      "get_medications"
+    ],
+    "description": "Needs both get_allergies (Peanut (substance)) and get_medications (Terfenadine 60 MG Oral Tablet).",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "allergy",
+        "value": "Peanut (substance)",
+        "source_tool": "get_allergies",
+        "resource_id": "c0a47dee-cc72-29ce-5203-c0eb146e9504"
+      },
+      {
+        "category": "medication",
+        "value": "Terfenadine 60 MG Oral Tablet",
+        "source_tool": "get_medications",
+        "resource_id": "c0a47dee-cc72-29ce-5fbf-d07bafe5829f"
+      }
+    ]
+  },
+  {
+    "case_id": "multi-tool-03",
+    "category": "multi_tool",
+    "case_type": "AGENT",
+    "difficulty": "multi_tool",
+    "patient_id": "6fbddf55-7096-b883-7cd3-260f27953080",
+    "question": "What allergies and medications are recorded for patient 6fbddf55-7096-b883-7cd3-260f27953080?",
+    "expected_tools": [
+      "get_allergies",
+      "get_medications"
+    ],
+    "description": "Needs both get_allergies (Sulfamethoxazole / Trimethoprim) and get_medications (Hydrocortisone 10 MG/ML Topical Cream).",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "allergy",
+        "value": "Sulfamethoxazole / Trimethoprim",
+        "source_tool": "get_allergies",
+        "resource_id": "6fbddf55-7096-b883-e467-75e039025c41"
+      },
+      {
+        "category": "medication",
+        "value": "Hydrocortisone 10 MG/ML Topical Cream",
+        "source_tool": "get_medications",
+        "resource_id": "6fbddf55-7096-b883-90d7-03a0b7551db6"
+      }
+    ]
+  },
+  {
+    "case_id": "multi-tool-04",
+    "category": "multi_tool",
+    "case_type": "AGENT",
+    "difficulty": "multi_tool",
+    "patient_id": "5ba0a3f3-32f7-02b1-ec6a-8f568923954c",
+    "question": "What allergies and medications are recorded for patient 5ba0a3f3-32f7-02b1-ec6a-8f568923954c?",
+    "expected_tools": [
+      "get_allergies",
+      "get_medications"
+    ],
+    "description": "Needs both get_allergies (Mold (organism)) and get_medications (Fexofenadine hydrochloride 30 MG Oral Tablet).",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "allergy",
+        "value": "Mold (organism)",
+        "source_tool": "get_allergies",
+        "resource_id": "5ba0a3f3-32f7-02b1-cff5-94a186d7ba98"
+      },
+      {
+        "category": "medication",
+        "value": "Fexofenadine hydrochloride 30 MG Oral Tablet",
+        "source_tool": "get_medications",
+        "resource_id": "5ba0a3f3-32f7-02b1-b1cd-8b8042d1d25f"
+      }
+    ]
+  },
+  {
+    "case_id": "multi-tool-05",
+    "category": "multi_tool",
+    "case_type": "AGENT",
+    "difficulty": "multi_tool",
+    "patient_id": "080b069b-5108-46b6-ecef-6aacd3b9ef3f",
+    "question": "What allergies and medications are recorded for patient 080b069b-5108-46b6-ecef-6aacd3b9ef3f?",
+    "expected_tools": [
+      "get_allergies",
+      "get_medications"
+    ],
+    "description": "Needs both get_allergies (Bee venom (substance)) and get_medications (Chlorpheniramine Maleate 2 MG/ML Oral Solution).",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "allergy",
+        "value": "Bee venom (substance)",
+        "source_tool": "get_allergies",
+        "resource_id": "080b069b-5108-46b6-16df-9b103e346ea5"
+      },
+      {
+        "category": "medication",
+        "value": "Chlorpheniramine Maleate 2 MG/ML Oral Solution",
+        "source_tool": "get_medications",
+        "resource_id": "080b069b-5108-46b6-5522-89473bb8f584"
+      }
+    ]
+  },
+  {
+    "case_id": "multi-tool-06",
+    "category": "multi_tool",
+    "case_type": "AGENT",
+    "difficulty": "multi_tool",
+    "patient_id": "f95a6723-14a5-c4b6-78df-fa97f7ab361c",
+    "question": "What allergies and medications are recorded for patient f95a6723-14a5-c4b6-78df-fa97f7ab361c?",
+    "expected_tools": [
+      "get_allergies",
+      "get_medications"
+    ],
+    "description": "Needs both get_allergies (Mold (organism)) and get_medications (Astemizole 10 MG Oral Tablet).",
+    "expected_status": "SUPPORTED",
+    "expected_evidence_facts": [
+      {
+        "category": "allergy",
+        "value": "Mold (organism)",
+        "source_tool": "get_allergies",
+        "resource_id": "f95a6723-14a5-c4b6-8125-106ae67ad9f6"
+      },
+      {
+        "category": "medication",
+        "value": "Astemizole 10 MG Oral Tablet",
+        "source_tool": "get_medications",
+        "resource_id": "f95a6723-14a5-c4b6-c1bf-afaa9b2a2722"
+      }
+    ]
+  },
+  {
+    "case_id": "verifier-challenge-01",
+    "category": "verifier_challenge",
+    "case_type": "VERIFIER_CHALLENGE",
+    "difficulty": "negative",
+    "patient_id": "c053e996-a4c4-6c02-e2b6-284227156c67",
+    "question": "Intentional contradiction test: does MEVA catch a false 'no allergies' claim for patient c053e996-a4c4-6c02-e2b6-284227156c67, who has 2 recorded allergies?",
+    "expected_tools": [],
+    "description": "Bypasses the live model; feeds a deliberately wrong claim straight into MEVA's verifier.",
+    "expected_status": "CONTRADICTED",
+    "injected_claim": {
+      "text": "No allergies are recorded for this patient.",
+      "patient_id": "c053e996-a4c4-6c02-e2b6-284227156c67",
+      "category": "allergy",
+      "value": null,
+      "assertion": "absent"
+    }
+  },
+  {
+    "case_id": "verifier-challenge-02",
+    "category": "verifier_challenge",
+    "case_type": "VERIFIER_CHALLENGE",
+    "difficulty": "negative",
+    "patient_id": "c053e996-a4c4-6c02-e2b6-284227156c67",
+    "question": "Intentional contradiction test: does MEVA catch a false medication claim (Zzznonexistentdrug) for patient c053e996-a4c4-6c02-e2b6-284227156c67?",
+    "expected_tools": [],
+    "description": "Bypasses the live model; feeds a deliberately unsupported claim straight into MEVA's verifier.",
+    "expected_status": "UNSUPPORTED",
+    "injected_claim": {
+      "text": "Zzznonexistentdrug is recorded as a medication.",
+      "patient_id": "c053e996-a4c4-6c02-e2b6-284227156c67",
+      "category": "medication",
+      "value": "Zzznonexistentdrug",
+      "assertion": "present"
+    }
+  },
+  {
+    "case_id": "verifier-challenge-03",
+    "category": "verifier_challenge",
+    "case_type": "VERIFIER_CHALLENGE",
+    "difficulty": "negative",
+    "patient_id": "c053e996-a4c4-6c02-e2b6-284227156c67",
+    "question": "Intentional contradiction test: is a clinical interpretation claim about patient c053e996-a4c4-6c02-e2b6-284227156c67's allergies verifiable?",
+    "expected_tools": [],
+    "description": "Bypasses the live model; feeds an interpretation claim MEVA never verifies.",
+    "expected_status": "UNVERIFIABLE",
+    "injected_claim": {
+      "text": "This patient's allergy profile looks concerning.",
+      "patient_id": "c053e996-a4c4-6c02-e2b6-284227156c67",
+      "category": "allergy",
+      "value": null,
+      "assertion": "interpretation"
+    }
+  },
+  {
+    "case_id": "verifier-challenge-04",
+    "category": "verifier_challenge",
+    "case_type": "VERIFIER_CHALLENGE",
+    "difficulty": "negative",
+    "patient_id": "d15b23ed-02d5-3e28-efbd-2604425317c5",
+    "question": "Intentional contradiction test: does MEVA catch a false condition claim (Zzznonexistentcondition) for patient d15b23ed-02d5-3e28-efbd-2604425317c5?",
+    "expected_tools": [],
+    "description": "Bypasses the live model; feeds a deliberately unsupported claim straight into MEVA's verifier.",
+    "expected_status": "UNSUPPORTED",
+    "injected_claim": {
+      "text": "Zzznonexistentcondition is recorded.",
+      "patient_id": "d15b23ed-02d5-3e28-efbd-2604425317c5",
+      "category": "condition",
+      "value": "Zzznonexistentcondition",
+      "assertion": "present"
+    }
+  }
+]

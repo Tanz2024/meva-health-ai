@@ -1,0 +1,41 @@
+{
+  "benchmark_name": "MEVA Benchmark Dataset",
+  "version": "v0.3",
+  "case_count": 56,
+  "categories": {
+    "allergy": 8,
+    "medication": 8,
+    "condition": 8,
+    "observation": 10,
+    "patient": 5,
+    "empty_evidence": 4,
+    "invalid_patient": 2,
+    "multi_tool": 7,
+    "verifier_challenge": 4
+  },
+  "case_types": {
+    "AGENT": 52,
+    "VERIFIER_CHALLENGE": 4
+  },
+  "difficulty": {
+    "simple": 31,
+    "multi_fact": 4,
+    "multi_tool": 7,
+    "negative": 12,
+    "error": 2
+  },
+  "patient_diversity": {
+    "unique_patients_in_agent_cases": 19,
+    "note": "18 real synthetic patients plus the intentional invalid-patient sentinel ID used by the 2 invalid_patient cases."
+  },
+  "data_source": "Synthea synthetic FHIR R4 fixtures included with MEVA (data/synthetic/synthea/patient-01.json through patient-18.json), all from the official synthetichealth/synthea-sample-data repository. See docs/synthetic-data.md for the full source mapping. No real patient data is used anywhere in this dataset.",
+  "created_date": "2026-08-15",
+  "description": "Stage 7B.5's comparison-ready benchmark suite: 15 additional official Synthea synthetic patients were added (18 total, up from 3) specifically to give this dataset enough patient diversity for meaningful multi-model comparison later. 4 cases (allergy-06, allergy-07, medication-07, condition-06) are 'multi_fact' regression cases that directly exercise the new attribute-level evidence/claim/verification support added in Stage 7B.5 — the same kind of case (an allergy's criticality and clinical status) that was previously and incorrectly scored UNSUPPORTED in the v0.2 benchmark. verifier-challenge-04 is a new attribute-level VERIFIER_CHALLENGE case proving MEVA's verifier catches a false attribute claim (wrong criticality) deterministically.",
+  "limitations": [
+    "56 cases across 18 synthetic patients are an engineering benchmark sample, not sufficient for clinical validation or statistical claims about model reliability.",
+    "Only one patient (patient-03) has any recorded allergies in the available Synthea fixture data, so all 8 allergy cases necessarily involve that one patient.",
+    "Attribute-level verification (Stage 7B.5) currently covers only allergy.criticality, allergy.clinical_status, medication.status, medication.intent, and condition.clinical_status/onset — fields already present in MEVA's existing tool output. It does not attempt general medical attribute extraction.",
+    "Tool over-calling and duplicate tool calls are measured but not penalized in pass/fail scoring.",
+    "Wrong-category structured claims from the model (e.g. labeling an allergy claim as category='patient') are never auto-corrected by MEVA — they remain a genuine, visible model failure rather than being silently repaired for a better score."
+  ]
+}

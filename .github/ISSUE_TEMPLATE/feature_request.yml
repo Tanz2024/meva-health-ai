@@ -1,0 +1,40 @@
+name: Feature request
+description: Suggest an improvement or new capability
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please note MEVA's scope boundaries before requesting a feature — see
+        `docs/safety-and-scope.md` and `ROADMAP.md`. Requests for diagnosis/treatment
+        functionality, paid/cloud AI integration, or real-patient-data support will be
+        declined as out of scope.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does this solve?
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Confirmations
+      options:
+        - label: This is not a request for diagnosis/treatment functionality, paid/cloud AI, or real-patient-data support
+          required: true

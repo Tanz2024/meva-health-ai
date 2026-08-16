@@ -1,0 +1,50 @@
+{
+  "benchmark_name": "MEVA Benchmark Dataset",
+  "version": "v0.4",
+  "case_count": 53,
+  "categories": {
+    "allergy": 6,
+    "medication": 8,
+    "condition": 8,
+    "observation": 10,
+    "patient": 5,
+    "empty_evidence": 4,
+    "invalid_patient": 2,
+    "multi_tool": 6,
+    "verifier_challenge": 4
+  },
+  "case_types": {
+    "AGENT": 49,
+    "VERIFIER_CHALLENGE": 4
+  },
+  "difficulty": {
+    "simple": 37,
+    "multi_tool": 6,
+    "negative": 8,
+    "error": 2
+  },
+  "patient_diversity": {
+    "unique_patients_in_agent_cases": 16,
+    "note": "16 of the 21 locally-generated public synthetic patients plus 2 intentional invalid-patient sentinel IDs used by the invalid_patient cases."
+  },
+  "data_provenance": {
+    "generator": "synthetichealth/synthea",
+    "generator_revision": "v3.4.0",
+    "generator_license": "Apache-2.0",
+    "seed": 42,
+    "population_requested": 30,
+    "fixtures_retained": 21,
+    "details": "data/synthetic/synthea/PROVENANCE.md"
+  },
+  "validation": {
+    "validator": "meva.benchmark.validator.validate_dataset",
+    "result": "PASSED — every expected_evidence_facts entry traced to the real, freshly-generated FHIR bundles; 0 errors, 0 warnings",
+    "note": "Every case's expected evidence was read directly from MEVA's own MCP tool functions against the newly generated patients — none fabricated."
+  },
+  "limitations": [
+    "Allergy and multi_tool categories fell short of their ~8/7 targets (6 each) because only 6-7 of the 21 retained patients have a named (non-generic) allergy in this generated population — not padded with fabricated evidence to hit a round number.",
+    "This is a newly created dataset (Stage 8A.1) with no AI model results yet — see README.md, 'v0.4 benchmark results pending.'",
+    "Not directly comparable to v0.1-v0.3 results, which used a different (now-removed) patient set — see docs/historical-sample-data-provenance.md.",
+    "56 patients were available from generation but only 21 were retained in the repository for size reasons — see data/synthetic/synthea/PROVENANCE.md for the selection process (30 generated, 21 retained)."
+  ]
+}

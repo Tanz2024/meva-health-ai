@@ -1,0 +1,128 @@
+[
+  {
+    "id": "holdout-positive-allergy",
+    "question": "What allergies are recorded for patient fixture-101?",
+    "patient_id": "fixture-101",
+    "answer": "The patient has a documented Latex allergy.",
+    "expected_claims": [
+      {"text": "Latex allergy recorded", "patient_id": "fixture-101", "category": "allergy", "value": "Latex", "assertion": "present"}
+    ]
+  },
+  {
+    "id": "holdout-global-negative-allergy",
+    "question": "What allergies are recorded for patient fixture-102?",
+    "patient_id": "fixture-102",
+    "answer": "There are no allergies on record for this patient.",
+    "expected_claims": [
+      {"text": "No allergies recorded", "patient_id": "fixture-102", "category": "allergy", "value": null, "assertion": "absent"}
+    ]
+  },
+  {
+    "id": "holdout-item-specific-negative-allergy",
+    "question": "Is a Shellfish allergy recorded for patient fixture-103?",
+    "patient_id": "fixture-103",
+    "answer": "No Shellfish allergy is recorded for this patient.",
+    "expected_claims": [
+      {"text": "No Shellfish allergy recorded", "patient_id": "fixture-103", "category": "allergy", "value": "Shellfish", "assertion": "absent"}
+    ]
+  },
+  {
+    "id": "holdout-medication-present",
+    "question": "Is Metformin recorded as a medication for patient fixture-104?",
+    "patient_id": "fixture-104",
+    "answer": "Metformin is recorded as a medication for this patient.",
+    "expected_claims": [
+      {"text": "Metformin recorded as a medication", "patient_id": "fixture-104", "category": "medication", "value": "Metformin", "assertion": "present"}
+    ]
+  },
+  {
+    "id": "holdout-condition-present",
+    "question": "What conditions are recorded for patient fixture-105?",
+    "patient_id": "fixture-105",
+    "answer": "The patient has a recorded diagnosis of Type 2 Diabetes.",
+    "expected_claims": [
+      {"text": "Type 2 Diabetes recorded", "patient_id": "fixture-105", "category": "condition", "value": "Type 2 Diabetes", "assertion": "present"}
+    ]
+  },
+  {
+    "id": "holdout-observation-numeric-value",
+    "question": "What is the most recent body temperature reading for patient fixture-106?",
+    "patient_id": "fixture-106",
+    "answer": "The most recent body temperature reading is 37.2 degrees Celsius.",
+    "expected_claims": [
+      {"text": "Body temperature 37.2 C", "patient_id": "fixture-106", "category": "observation", "value": "Body Temperature: 37.2 degrees Celsius", "assertion": "value"}
+    ]
+  },
+  {
+    "id": "holdout-observation-absence",
+    "question": "What is the most recent respiratory rate for patient fixture-107?",
+    "patient_id": "fixture-107",
+    "answer": "No respiratory rate observation was found for this patient.",
+    "expected_claims": [
+      {"text": "No respiratory rate observation found", "patient_id": "fixture-107", "category": "observation", "value": "Respiratory Rate", "assertion": "absent"}
+    ]
+  },
+  {
+    "id": "holdout-patient-demographic-fact",
+    "question": "What is the recorded gender for patient fixture-108?",
+    "patient_id": "fixture-108",
+    "answer": "The recorded gender for this patient is female.",
+    "expected_claims": [
+      {"text": "Gender recorded as female", "patient_id": "fixture-108", "category": "patient", "value": "female", "assertion": "value"}
+    ]
+  },
+  {
+    "id": "holdout-attribute-criticality",
+    "question": "What is the criticality of the Latex allergy for patient fixture-109?",
+    "patient_id": "fixture-109",
+    "answer": "The Latex allergy has a criticality of low.",
+    "expected_claims": [
+      {"text": "Latex allergy criticality is low", "patient_id": "fixture-109", "category": "allergy", "value": "Latex", "assertion": "attribute", "attribute": "criticality", "attribute_value": "low"}
+    ]
+  },
+  {
+    "id": "holdout-attribute-clinical-status",
+    "question": "What is the clinical status of the Hypertension condition for patient fixture-110?",
+    "patient_id": "fixture-110",
+    "answer": "The Hypertension condition has a clinical status of active.",
+    "expected_claims": [
+      {"text": "Hypertension clinical status is active", "patient_id": "fixture-110", "category": "condition", "value": "Hypertension", "assertion": "attribute", "attribute": "clinical_status", "attribute_value": "active"}
+    ]
+  },
+  {
+    "id": "holdout-two-claim-answer",
+    "question": "What allergies are recorded for patient fixture-111?",
+    "patient_id": "fixture-111",
+    "answer": "The patient has recorded allergies to Latex and Pollen.",
+    "expected_claims": [
+      {"text": "Latex allergy recorded", "patient_id": "fixture-111", "category": "allergy", "value": "Latex", "assertion": "present"},
+      {"text": "Pollen allergy recorded", "patient_id": "fixture-111", "category": "allergy", "value": "Pollen", "assertion": "present"}
+    ]
+  },
+  {
+    "id": "holdout-three-plus-claim-answer",
+    "question": "What is recorded for patient fixture-112's Latex allergy and medications?",
+    "patient_id": "fixture-112",
+    "answer": "The Latex allergy is active with a criticality of high, and the patient also takes Metformin.",
+    "expected_claims": [
+      {"text": "Latex allergy present", "patient_id": "fixture-112", "category": "allergy", "value": "Latex", "assertion": "present"},
+      {"text": "Latex allergy clinical status is active", "patient_id": "fixture-112", "category": "allergy", "value": "Latex", "assertion": "attribute", "attribute": "clinical_status", "attribute_value": "active"},
+      {"text": "Latex allergy criticality is high", "patient_id": "fixture-112", "category": "allergy", "value": "Latex", "assertion": "attribute", "attribute": "criticality", "attribute_value": "high"},
+      {"text": "Metformin recorded as a medication", "patient_id": "fixture-112", "category": "medication", "value": "Metformin", "assertion": "present"}
+    ]
+  },
+  {
+    "id": "holdout-uncertain-statement",
+    "question": "Does patient fixture-113 have a condition on record?",
+    "patient_id": "fixture-113",
+    "answer": "It's possible the record mentions a condition, but the available information doesn't make it clear.",
+    "expected_claims": []
+  },
+  {
+    "id": "holdout-no-factual-claim",
+    "question": "What medications are recorded for patient fixture-114?",
+    "patient_id": "fixture-114",
+    "answer": "I don't have enough information to answer that — could you provide the correct patient ID?",
+    "expected_claims": []
+  }
+]

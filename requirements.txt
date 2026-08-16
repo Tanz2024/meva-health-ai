@@ -1,0 +1,7 @@
+# Deployment dependency file for the Stage 8C browser sandbox (streamlit_app.py).
+# Not deployed yet — this only prepares the repository for a future
+# Streamlit Community Cloud deployment (see docs/playground.md, "Browser Sandbox").
+#
+# Installs MEVA itself plus the optional "playground" extra (Streamlit).
+# Local development should prefer: pip install -e ".[playground]"
+.[playground]

@@ -1,0 +1,30 @@
+{
+  "benchmark_name": "MEVA Benchmark Dataset",
+  "version": "v0.2",
+  "case_count": 40,
+  "categories": {
+    "allergy": 6,
+    "medication": 6,
+    "condition": 6,
+    "observation": 7,
+    "patient": 3,
+    "empty_evidence": 3,
+    "invalid_patient": 2,
+    "multi_tool": 4,
+    "verifier_challenge": 3
+  },
+  "case_types": {
+    "AGENT": 37,
+    "VERIFIER_CHALLENGE": 3
+  },
+  "data_source": "Synthea synthetic FHIR R4 fixtures included with MEVA (data/synthetic/synthea/patient-01.json, patient-02.json, patient-03.json). See docs/synthetic-data.md for provenance. No real patient data is used anywhere in this dataset.",
+  "created_date": "2026-08-15",
+  "description": "Expanded, structured benchmark suite for MEVA's local agent + verifier pipeline. Every expected_evidence_facts entry was generated directly from the real Synthea bundles (see examples/inspect_benchmark_data.py) and checked by src/meva/benchmark/validator.py before being committed. 37 cases exercise the live local model (AGENT); 3 cases test MEVA's deterministic verifier directly with a hand-written wrong claim (VERIFIER_CHALLENGE) and must never be reported as model performance.",
+  "limitations": [
+    "This is an engineering/research benchmark sample, not a clinical validation study. 40 cases are not sufficient for statistical claims about model reliability.",
+    "Evidence Grounding Score and tool-selection metrics measure whether an AI's claims match retrieved FHIR records, not diagnostic or clinical correctness.",
+    "Only 3 synthetic patients exist in the fixture data, so allergy/medication/condition cases necessarily reuse the same underlying resources from multiple question angles rather than drawing from many different patients.",
+    "Observation cases involving repeated measurement types (e.g. multiple blood pressure readings per patient) are scoped to the first recorded instance to keep expected values unambiguous.",
+    "Tool over-calling is measured but not penalized in scoring; only required-tool coverage affects pass/fail."
+  ]
+}

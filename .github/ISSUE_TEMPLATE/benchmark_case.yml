@@ -1,0 +1,61 @@
+name: Benchmark case proposal
+description: Propose a new benchmark case for MEVA's dataset
+labels: ["benchmark"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        See `docs/benchmark-dataset.md` and `CONTRIBUTING.md` for the case schema
+        and validation process before proposing a case.
+
+  - type: checkboxes
+    id: synthetic-confirmation
+    attributes:
+      label: Synthetic data confirmation
+      options:
+        - label: >-
+            This case uses ONLY synthetic (Synthea-generated) patient data already
+            present in data/synthetic/ — it does NOT contain, reference, or imply
+            any real patient's information.
+          required: true
+        - label: >-
+            This case does not ask for a diagnosis or treatment recommendation.
+          required: true
+
+  - type: input
+    id: category
+    attributes:
+      label: Category
+      description: "e.g. allergy, medication, condition, observation, multi_tool"
+    validations:
+      required: true
+
+  - type: input
+    id: patient-id
+    attributes:
+      label: Synthetic patient_id used
+    validations:
+      required: true
+
+  - type: textarea
+    id: question
+    attributes:
+      label: Proposed question
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-evidence
+    attributes:
+      label: Expected evidence (category, value, source_tool, resource_id if known)
+      description: See ExpectedEvidence in docs/benchmark-dataset.md
+    validations:
+      required: true
+
+  - type: textarea
+    id: why
+    attributes:
+      label: Why is this case useful?
+      description: What gap in the current dataset does it fill?
+    validations:
+      required: false
