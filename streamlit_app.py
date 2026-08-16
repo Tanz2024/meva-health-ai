@@ -198,7 +198,10 @@ st.divider()
 st.header("1. Choose a fictional patient")
 
 patients = _cached_patient_list()
-patient_options = {f"{p['name']} — {p['patient_id']}": p["patient_id"] for p in patients}
+# Names are unique across all 21 public v0.4 patients, so the dropdown can show
+# a plain name instead of a raw UUID — friendlier for Guided Mode visitors.
+# The full technical ID still appears in the caption below and in Advanced Mode.
+patient_options = {p["name"]: p["patient_id"] for p in patients}
 label_by_patient_id = {v: k for k, v in patient_options.items()}
 labels = list(patient_options.keys())
 
@@ -214,7 +217,7 @@ if "patient_selector" not in st.session_state:
 
 selected_label = st.selectbox(
     "Synthetic patient", options=labels, key="patient_selector",
-    help="All patients are fictional, Synthea-generated data — search by name or ID.",
+    help="All patients are fictional, Synthea-generated data — search by name.",
 )
 selected_patient_id = patient_options[selected_label]
 
@@ -224,12 +227,10 @@ except ValueError:
     st.error("That patient could not be found in the public dataset.")
     st.stop()
 
-col1, col2, col3, col4 = st.columns(4)
-col1.metric("Patient", patient_detail["name"])
-col2.metric("Gender", patient_detail.get("gender") or "unknown")
-col3.metric("Birth date", patient_detail.get("birth_date") or "unknown")
-col4.metric("Synthetic Patient ID", selected_patient_id[:8] + "…")
-st.caption(f"Full ID: `{selected_patient_id}` — Fictional Synthea-generated patient.")
+col1, col2 = st.columns(2)
+col1.metric("Gender", patient_detail.get("gender") or "unknown")
+col2.metric("Birth date", patient_detail.get("birth_date") or "unknown")
+st.caption(f"Fictional Synthea-generated patient. Technical ID: `{selected_patient_id}`")
 
 st.divider()
 
