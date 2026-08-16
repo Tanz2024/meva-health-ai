@@ -3,12 +3,7 @@
 All notable changes to this project are documented here. Format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-**No GitHub release has been published yet.** Everything below reflects
-development history up to the point of Stage 8D release-candidate
-finalization; a `git` history and public release will follow separately,
-on explicit approval.
-
-## [0.1.0] - Unreleased
+## [0.1.0] - 2026-08-17
 
 ### Added
 
@@ -70,6 +65,26 @@ on explicit approval.
 - Release-candidate finalization (Stage 8D): placeholder audit, publishing
   checklist, version/wording consistency pass, clean-install and
   package-build verification.
+- Public GitHub publication of the repository, and a live, publicly
+  hosted Streamlit Community Cloud sandbox deployment (Stage 8E), with
+  deployment-safe synthetic-data discovery
+  (`meva.mcp.registry._resolve_data_dir`) covering editable/non-editable
+  installs and Streamlit Cloud's specific launch behavior.
+- Contributor-readiness materials (Stage 8F): a first-contribution guide
+  (`docs/contributor-issues.md`), a proposed GitHub label taxonomy
+  (`docs/github-labels.md`), and a four-mode playground writeup
+  (`docs/playground.md`: public hosted sandbox / local browser sandbox /
+  local CLI / full local AI).
+- A Guided Mode for the browser sandbox (Stage 8G) — plain-English claim
+  building for non-technical visitors, alongside the existing technical
+  Advanced Mode — both calling the same unmodified deterministic
+  verifier.
+- README screenshots of the hosted sandbox (Guided Mode, a verification
+  result, Advanced Mode).
+- A process-local cache for the synthetic patient registry
+  (`meva.mcp.registry`), eliminating redundant re-parsing of FHIR bundles
+  on repeated lookups — a performance fix with no change to any returned
+  data, verifier behavior, or benchmark result.
 
 ### Changed
 

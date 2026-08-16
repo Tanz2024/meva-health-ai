@@ -27,16 +27,20 @@ def test_version_is_0_1_0_everywhere_it_is_declared():
     assert "version: 0.1.0" in citation_text
 
     changelog_text = (REPO_ROOT / "CHANGELOG.md").read_text()
-    assert "[0.1.0] - Unreleased" in changelog_text
+    assert "[0.1.0] - 2026-08-17" in changelog_text
 
     from meva.benchmark.reporter import MEVA_VERSION
     assert MEVA_VERSION == "0.1.0"
 
 
-def test_changelog_not_prematurely_marked_released():
+def test_changelog_is_marked_released_for_v0_1_0():
+    """v0.1.0 was published 2026-08-17 (explicit release authorization) — the
+    changelog must reflect an actual dated release, not an "Unreleased"
+    placeholder or a stale "no release has been published yet" claim."""
     changelog_text = (REPO_ROOT / "CHANGELOG.md").read_text()
-    assert "Unreleased" in changelog_text
-    assert "No GitHub release has been published yet" in changelog_text
+    assert "[0.1.0] - Unreleased" not in changelog_text
+    assert "No GitHub release has been published yet" not in changelog_text
+    assert "[0.1.0] - 2026-08-17" in changelog_text
 
 
 # --- repository-relative data path (packaging note) ---------------------
