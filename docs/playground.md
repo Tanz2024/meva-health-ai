@@ -1,4 +1,23 @@
-# MEVA Public Verifier Playground (Stage 8B)
+# MEVA Public Verifier Playground
+
+There are **four ways** to try MEVA's deterministic verifier, from zero
+install to full local AI mode:
+
+| Mode | Where | Ollama required? | Install required? |
+|---|---|---|---|
+| **Public hosted sandbox** | [Live Sandbox](https://meva-health-aigit-exbml8bjbokk28zs6amu3h.streamlit.app/) (Streamlit Community Cloud) | **No** | No — runs in your browser |
+| **Local browser sandbox** | `streamlit run streamlit_app.py` on your machine | No | `pip install -e ".[playground]"` |
+| **Local CLI playground** | `python3 examples/playground.py ...` | No | `pip install -e .` |
+| **Full local AI mode** | the actual agent loop (claim extraction + verification) | **Yes** | `pip install -e .` + Ollama + a pulled model |
+
+The first three modes all exercise the exact same deterministic verifier
+(`meva.verification.verifier.build_report()`) with **no AI model
+inference anywhere** — you build the claim yourself and MEVA checks it
+against real recorded synthetic data. **The public hosted sandbox in
+particular runs no Ollama and no model of any kind** — it is a plain
+Python web app over static synthetic fixtures. Only "Full local AI mode"
+(a separate, local-only component — see `docs/decoupled-evaluation.md`)
+involves a model, and it never runs on the public hosted sandbox.
 
 `examples/playground.py` is a command-line demonstration of MEVA's
 **deterministic evidence verifier** — no AI model, no inference, no
@@ -140,12 +159,13 @@ other's logic, and neither implements any verification rule of its own —
 `verify_claim` calls `meva.verification.verifier.build_report()` directly,
 unmodified.
 
-# Browser Sandbox (Stage 8C)
+# Browser Sandbox
 
-`streamlit_app.py` is a local, browser-based UI over the exact same
-service layer — still **deterministic verification only, no AI model, no
-network calls**. It is not yet deployed publicly (see "Not yet: a public
-URL" below).
+`streamlit_app.py` is a browser-based UI over the exact same service
+layer — still **deterministic verification only, no AI model, no network
+calls**. It is deployed publicly at
+[meva-health-aigit-exbml8bjbokk28zs6amu3h.streamlit.app](https://meva-health-aigit-exbml8bjbokk28zs6amu3h.streamlit.app/)
+(Streamlit Community Cloud), and can also be run locally.
 
 ## Local setup
 
@@ -179,10 +199,17 @@ run-through documented visually.
    MEVA-normalized data with resource IDs. A "Developer" expander shows
    the full normalized JSON, hidden by default.
 3. **Build a claim** — pick a Category and Assertion, then fill in Value
-   (and Attribute/Attribute value, for attribute claims). The form
-   validates the same combinations the verifier itself supports (e.g.
-   `present`/`value`/`attribute` need a Value; `absent` doesn't) before
-   ever calling the verifier — see `_validate_form` in `streamlit_app.py`.
+   (and Attribute/Attribute value, for attribute claims). A category-aware
+   hint (`CATEGORY_VALUE_HINTS` in `meva.playground.service`) shows an
+   example value format for the selected category, and — once a patient
+   and category are chosen — a row of **suggested values** offers a few
+   real evidence values already visible in that patient's own Evidence
+   Explorer tabs (`suggested_values()`); these are optional, educational
+   suggestions only, never a forced "correct answer," and you can always
+   type something else. The form validates the same combinations the
+   verifier itself supports (e.g. `present`/`value`/`attribute` need a
+   Value; `absent` doesn't) before ever calling the verifier — see
+   `_validate_form` in `streamlit_app.py`.
 4. **Press "Verify claim"** — this calls `meva.playground.verify_claim`
    directly, the same function the CLI uses. No LLM, no NLP extraction, no
    network request happens on this click.
@@ -248,18 +275,12 @@ is normalized.
 
 ## Limitations
 
-- Local only — not yet deployed to any hosting provider.
 - No screenshots yet (see above).
-- The "Advanced: MedicalClaim JSON" view is read-only in this stage — it
-  displays the constructed claim but does not accept free-form JSON input
-  (avoiding the need to validate/sanitize arbitrary user JSON before a
-  future public deployment).
+- The "Advanced: MedicalClaim JSON" view is read-only — it displays the
+  constructed claim but does not accept free-form JSON input (avoiding the
+  need to validate/sanitize arbitrary user JSON).
 - Six ready-made examples, not an exhaustive catalog of every claim shape
   MEVA supports.
-
-## Not yet: a public URL
-
-Stage 8C prepares the repository for a future Streamlit Community Cloud
-deployment (`requirements.txt`, `.streamlit/config.toml`) but **does not
-deploy it**. Public hosted sandbox: **coming after release** — no URL
-exists yet, and none is guessed or reserved here.
+- Suggested values are drawn only from data already visible in that
+  patient's Evidence Explorer tabs — they never reveal anything the
+  sandbox visitor couldn't already see themselves.

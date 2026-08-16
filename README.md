@@ -1,11 +1,26 @@
-# MEVA — Medical Evidence Verification Agent
+# MEVA
+### Medical Evidence Verification Agent
 
-MEVA is an open-source research and engineering framework for evaluating
-whether AI agents **retrieve and faithfully use medical evidence** from
-synthetic FHIR records. It pairs a local, tool-calling AI agent with a
-**deterministic (non-AI) verifier** that checks every claim the agent makes
-against real, retrieved evidence — producing SUPPORTED / CONTRADICTED /
-UNSUPPORTED / UNVERIFIABLE verdicts and an Evidence Grounding Score.
+**What it does:** MEVA evaluates whether AI-generated medical-record claims
+are grounded in retrieved synthetic FHIR evidence, using a deterministic
+(non-AI) verifier — no diagnosis, no treatment advice, no real patient data.
+
+## 🧪 Live Sandbox
+
+**Try MEVA in your browser — no Ollama, no API key, no installation required.**
+
+### **[▶ Open Live Sandbox](https://meva-health-aigit-exbml8bjbokk28zs6amu3h.streamlit.app/)**
+
+- **Synthetic data only** — 21 fictional, Synthea-generated patients
+- **Deterministic verifier** — every result comes from plain Python evidence
+  matching, not a model's opinion
+- **No AI model runs in the public sandbox** — you build the claim yourself
+  and MEVA checks it against real recorded (synthetic) data
+
+**[Try Live Sandbox](https://meva-health-aigit-exbml8bjbokk28zs6amu3h.streamlit.app/)** ·
+**[Quick Start](#quick-start)** ·
+**[Benchmark Methodology](docs/benchmarking.md)** ·
+**[Contribute](#contributing)**
 
 > **MEVA is not a medical chatbot, diagnostic AI, clinical decision support
 > tool, treatment recommendation system, or medical device.** It is not
@@ -72,8 +87,8 @@ pytest
 > scope (a research/engineering repo, not a distributed library) — see
 > `docs/publishing-checklist.md` if this changes in the future.
 
-This runs the entire offline test suite (321 tests, no AI model required —
-see [What runs without AI](#what-runs-without-ai-ollama-not-required)).
+This runs the entire offline test suite (no AI model required — see
+[What runs without AI](#what-runs-without-ai-ollama-not-required)).
 
 **Optional — local AI:**
 
@@ -92,7 +107,7 @@ Most of MEVA works with **no AI model at all**:
 - FHIR parsing (`src/meva/fhir/`)
 - Deterministic evidence verification (`src/meva/verification/`)
 - Benchmark dataset loading and validation (`meva.benchmark.validator`)
-- The full offline test suite (321 tests)
+- The full offline test suite (`pytest`)
 - The verifier-challenge examples (`examples/verify_contradiction_demo.py`)
   — these test MEVA's own verification logic with a hand-written wrong
   claim, no live model involved
@@ -194,8 +209,17 @@ benchmark behavior, not clinical performance.**
 
 ## Try MEVA (deterministic verification only, no AI model)
 
-Three ways to explore MEVA's deterministic verifier against the 21 public
-v0.4 synthetic patients — **none of them call any AI model**:
+Four ways to explore MEVA's deterministic verifier against the 21 public
+v0.4 synthetic patients — **none of them require an AI model**:
+
+**Public hosted sandbox (no install):** **[Open Live Sandbox](https://meva-health-aigit-exbml8bjbokk28zs6amu3h.streamlit.app/)**
+
+**Local browser sandbox:**
+
+```bash
+pip install -e ".[playground]"
+streamlit run streamlit_app.py
+```
 
 **Local CLI playground:**
 
@@ -205,20 +229,24 @@ python3 examples/playground.py list-patients
 python3 examples/playground.py verify --patient-id <id> --category allergy --assertion present --value "Peanut"
 ```
 
-**Browser sandbox (local):**
+**Full local AI mode** (optional, needs Ollama — see [What runs without AI](#what-runs-without-ai-ollama-not-required) below).
 
-```bash
-pip install -e ".[playground]"
-streamlit run streamlit_app.py
-```
+All four share the same service layer (`meva.playground`) and call MEVA's
+real, unmodified verifier — you state a claim yourself (category/assertion/
+value); MEVA checks it against real recorded data and returns
+SUPPORTED/CONTRADICTED/UNSUPPORTED/UNVERIFIABLE with full provenance. Full
+details, including how the four modes differ: [`docs/playground.md`](docs/playground.md).
 
-**Public hosted sandbox:** coming after release — no URL exists yet.
+### Screenshots
 
-Both the CLI and the browser sandbox share the same service layer
-(`meva.playground`) and call MEVA's real, unmodified verifier — you state a
-claim yourself (category/assertion/value); MEVA checks it against real
-recorded data and returns SUPPORTED/CONTRADICTED/UNSUPPORTED/UNVERIFIABLE
-with full provenance. Full details: [`docs/playground.md`](docs/playground.md).
+Not yet included in this repository. Once available, they'll live at:
+
+- `docs/images/meva-sandbox-overview.png` — the main sandbox page
+- `docs/images/meva-evidence-explorer.png` — a selected patient's evidence tabs
+- `docs/images/meva-verification-result.png` — a verification result card
+
+(`docs/images/` already exists in this repo, ready for those files — see the
+live sandbox link above for the real thing in the meantime.)
 
 ## Documentation
 
@@ -255,9 +283,23 @@ Full statement: `docs/safety-and-scope.md`.
 
 ## Contributing
 
-See [`CONTRIBUTING.md`](CONTRIBUTING.md) — setup, tests, and how to add
-FHIR support, benchmark cases (synthetic data only), verifier tests, or
-model adapters. Please also read `CODE_OF_CONDUCT.md`.
+1. Pick an issue (or propose one)
+2. Fork the repository
+3. Create a branch
+4. Make your change
+5. Run `pytest`
+6. Open a pull request
+
+Full setup, testing details, and how to add FHIR support, benchmark cases
+(synthetic data only), verifier tests, or model adapters:
+[`CONTRIBUTING.md`](CONTRIBUTING.md). Please also read `CODE_OF_CONDUCT.md`.
+
+### Looking for a first contribution?
+
+See **[`docs/contributor-issues.md`](docs/contributor-issues.md)** for a set
+of concrete, scoped starter tasks (issue links will be added here once
+they're published on GitHub) — and `CONTRIBUTING.md` for the general
+process above.
 
 ## License
 

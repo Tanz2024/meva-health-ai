@@ -4,12 +4,14 @@ No verification rules or FHIR parsing of its own — see service.py.
 """
 
 from meva.playground.service import (
+    CATEGORY_VALUE_HINTS,
     INVALID_PATIENT_ID_EXAMPLE,
     build_ready_made_examples,
     describe_patient,
     format_datetime_display,
     list_patients,
     observation_display_value,
+    suggested_values,
     verify_claim,
 )
 
@@ -20,5 +22,7 @@ __all__ = [
     "observation_display_value",
     "format_datetime_display",
     "build_ready_made_examples",
+    "suggested_values",
+    "CATEGORY_VALUE_HINTS",
     "INVALID_PATIENT_ID_EXAMPLE",
 ]

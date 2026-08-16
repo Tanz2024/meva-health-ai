@@ -12,14 +12,17 @@ import sys
 from pathlib import Path
 
 from meva.playground import (
+    CATEGORY_VALUE_HINTS,
     build_ready_made_examples,
     describe_patient,
     format_datetime_display,
     list_patients,
     observation_display_value,
+    suggested_values,
     verify_claim,
 )
 from meva.playground.service import INVALID_PATIENT_ID_EXAMPLE
+from meva.verification.models import CLAIM_CATEGORIES
 
 ALLERGY_PATIENT_ID = "c053e996-a4c4-6c02-e2b6-284227156c67"
 
@@ -195,3 +198,50 @@ def test_cli_run_demo_produces_all_four_verdicts(capsys):
     statuses = {r["status"] for r in results}
     assert statuses == {"SUPPORTED", "CONTRADICTED", "UNSUPPORTED", "UNVERIFIABLE"}
     capsys.readouterr()
+
+
+# --- Stage 8F: claim-builder guidance (hints + suggested values) -----------
+
+def test_category_value_hints_cover_every_claim_category():
+    for category in CLAIM_CATEGORIES:
+        assert category in CATEGORY_VALUE_HINTS
+        assert CATEGORY_VALUE_HINTS[category].strip()
+
+
+def test_suggested_values_returns_real_allergy_evidence_for_known_patient():
+    values = suggested_values(ALLERGY_PATIENT_ID, "allergy")
+    assert values
+    assert "Peanut (substance)" in values
+
+
+def test_suggested_values_returns_no_duplicates():
+    values = suggested_values(ALLERGY_PATIENT_ID, "observation")
+    assert len(values) == len(set(values))
+
+
+def test_suggested_values_respects_limit():
+    values = suggested_values(ALLERGY_PATIENT_ID, "observation", limit=2)
+    assert len(values) <= 2
+
+
+def test_suggested_values_empty_for_unknown_category():
+    assert suggested_values(ALLERGY_PATIENT_ID, "encounter") == []
+
+
+def test_suggested_values_raises_for_invalid_patient():
+    # Matches the underlying MCP tool contract (mcp_server.get_allergies etc.
+    # raise ValueError for an unknown patient_id) — suggested_values doesn't
+    # swallow this, since it's meant to reflect exactly what a real lookup
+    # for the currently selected patient would return.
+    import pytest
+
+    with pytest.raises(ValueError):
+        suggested_values(INVALID_PATIENT_ID_EXAMPLE, "allergy")
+
+
+def test_suggested_values_uses_only_existing_resource_lookups():
+    from meva.playground import service
+
+    # Suggested values must never query anything beyond what the Evidence
+    # Explorer tabs already show — same lookup table, no separate data path.
+    assert set(service.RESOURCE_LOOKUPS) <= set(CLAIM_CATEGORIES)

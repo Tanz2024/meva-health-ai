@@ -263,3 +263,29 @@ def test_historical_skip_count_unchanged():
     observation_audit_test_count = observation_audit_text.count("\ndef test_")
     assert "pytestmark = pytest.mark.skip(" in observation_audit_text
     assert validator_skips + observation_audit_test_count == 10
+
+
+# --- Stage 8F: GitHub link + result card status display ---------------------
+
+def test_streamlit_app_github_url_is_correct():
+    source = (REPO_ROOT / "streamlit_app.py").read_text()
+    assert 'GITHUB_URL = "https://github.com/Tanz2024/meva-health-ai"' in source
+    assert "st.link_button" in source
+    assert "GITHUB_URL" in source
+
+
+def test_streamlit_app_status_display_covers_all_four_verdicts():
+    source = (REPO_ROOT / "streamlit_app.py").read_text()
+    for status in ("SUPPORTED", "CONTRADICTED", "UNSUPPORTED", "UNVERIFIABLE"):
+        assert f'"{status}":' in source
+
+
+def test_streamlit_app_uses_category_hints_and_suggested_values():
+    source = (REPO_ROOT / "streamlit_app.py").read_text()
+    assert "CATEGORY_VALUE_HINTS" in source
+    assert "suggested_values(" in source
+
+
+def test_requirements_txt_deps_version_marker_present():
+    text = (REPO_ROOT / "requirements.txt").read_text()
+    assert "# deps-version:" in text

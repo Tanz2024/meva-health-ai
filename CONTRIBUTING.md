@@ -16,12 +16,17 @@ pip install -e .
 pytest
 ```
 
-The full offline test suite (257+ tests as of this writing) should pass
-with no AI model installed. If you want to work on anything involving local
-AI inference (the agent loop, claim extraction, multi-model comparison),
-also install [Ollama](https://ollama.com) and pull the models used in
-existing examples (e.g. `ollama pull qwen3:4b`) — but this is **not**
-required for most contributions.
+The full offline test suite should pass with no AI model installed — most
+contributions (verifier logic, FHIR parsing, benchmark cases, the sandbox
+UI) never need Ollama. Two optional extras exist for specific work:
+
+- `pip install -e ".[playground]"` — needed only if you're working on the
+  Streamlit browser sandbox (`streamlit_app.py`). You can also try the
+  [live hosted sandbox](https://meva-health-aigit-exbml8bjbokk28zs6amu3h.streamlit.app/)
+  or the CLI playground (`examples/playground.py`) without installing anything extra.
+- [Ollama](https://ollama.com) + `ollama pull qwen3:4b` (etc.) — needed only
+  if you're working on the agent loop, claim extraction, or multi-model
+  comparison. Not required for most contributions.
 
 ## Running tests
 
@@ -87,6 +92,16 @@ edge case (a new assertion type interaction, a normalization edge case,
 etc.) are always welcome — this is one of the highest-value places to
 contribute test coverage.
 
+### Improving the sandbox (CLI or browser)
+
+`src/meva/playground/service.py` holds the reusable logic behind both
+`examples/playground.py` (CLI) and `streamlit_app.py` (browser) — neither
+duplicates the other, and neither implements its own verification rules.
+UI polish, clearer claim-builder guidance, and evidence-explorer
+improvements are welcome; see `docs/playground.md` for how the four modes
+(public hosted sandbox, local browser sandbox, local CLI, full local AI)
+relate to each other.
+
 ### Documentation
 
 Clarifications, fixed typos, better examples, and improved explanations in
@@ -94,11 +109,15 @@ Clarifications, fixed typos, better examples, and improved explanations in
 
 ### Realistic entry points if you're new here
 
+See **[`docs/contributor-issues.md`](docs/contributor-issues.md)** for a
+set of concretely scoped starter tasks (each with expected files, behavior,
+and tests) — several are marked "good first issue." A few quick examples:
+
 - Add a deterministic verifier edge-case test
 - Add a new synthetic benchmark case (with real evidence-fact validation)
 - Improve an existing `docs/*.md` file's clarity
 - Improve MCP tool error handling/messages
-- Improve the CLI output of an `examples/*.py` script
+- Improve the CLI or sandbox UI output of a `playground`-related script
 
 We can't promise contributors will show up for any of these — they're
 listed as realistic starting points, not guarantees.

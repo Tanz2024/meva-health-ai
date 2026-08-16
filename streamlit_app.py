@@ -20,15 +20,27 @@ import streamlit as st
 from pydantic import ValidationError
 
 from meva.playground import (
+    CATEGORY_VALUE_HINTS,
     build_ready_made_examples,
     describe_patient,
     format_datetime_display,
     list_patients,
     observation_display_value,
+    suggested_values,
     verify_claim,
 )
 from meva.mcp import server as mcp_server
 from meva.verification.models import CLAIM_ASSERTIONS, CLAIM_CATEGORIES, MedicalClaim
+
+GITHUB_URL = "https://github.com/Tanz2024/meva-health-ai"
+
+# (icon, alert-box function) per status — icon+text together, never color alone.
+STATUS_DISPLAY = {
+    "SUPPORTED": ("✅", st.success),
+    "CONTRADICTED": ("❌", st.error),
+    "UNSUPPORTED": ("➖", st.warning),
+    "UNVERIFIABLE": ("❓", st.info),
+}
 
 STATUS_EXPLANATIONS = {
     "SUPPORTED": "Retrieved evidence supports the structured claim.",
@@ -60,9 +72,13 @@ def _cached_ready_made_examples() -> list[dict]:
 
 # --- header ------------------------------------------------------------
 
-st.title("MEVA")
-st.subheader("Medical Evidence Verification Agent")
-st.caption("Explore how MEVA checks AI-style claims against synthetic FHIR evidence.")
+header_col, github_col = st.columns([5, 1])
+with header_col:
+    st.title("MEVA")
+    st.subheader("Medical Evidence Verification Agent")
+    st.caption("Explore how MEVA checks AI-style claims against synthetic FHIR evidence.")
+with github_col:
+    st.link_button("⭐ View on GitHub", GITHUB_URL, use_container_width=True)
 
 st.warning(
     "**Synthetic data only. Not medical advice. Not for diagnosis or treatment.** "
@@ -215,6 +231,7 @@ st.divider()
 # --- claim builder -------------------------------------------------------
 
 st.header("4. Build a claim to verify")
+st.caption("Not sure what to type? Try an example below, or use a suggested value once you pick a category.")
 
 if "claim_form" not in st.session_state:
     st.session_state.claim_form = {
@@ -234,17 +251,36 @@ for col, example in zip(example_cols, examples):
         # Sync the patient selector widget itself (not just the local variable) so the
         # dropdown above visibly reflects the example's patient after rerun.
         st.session_state["patient_selector"] = label_by_patient_id[example["patient_id"]]
+        st.session_state["claim_category_select"] = example["category"]
         st.session_state["_example_loaded"] = True
         st.rerun()
 
 if st.session_state.pop("_example_loaded", False):
     st.info(f"Example loaded for patient `{selected_patient_id}` — press **Verify claim** below.")
 
+# Category lives OUTSIDE the form (not inside st.form) so suggestions below react
+# immediately as the visitor changes it, instead of only after submitting.
+if "claim_category_select" not in st.session_state:
+    st.session_state["claim_category_select"] = st.session_state.claim_form["category"]
+
+category = st.selectbox(
+    "Category", options=CLAIM_CATEGORIES, key="claim_category_select",
+    help="What kind of record this claim is about.",
+)
+
+st.caption(f"Value format for **{category}**: {CATEGORY_VALUE_HINTS.get(category, 'a value matching this record type')}")
+
+suggestions = suggested_values(selected_patient_id, category)
+if suggestions:
+    st.caption(f"Suggested values from **{patient_detail['name']}**'s own record (you may still type anything else):")
+    suggestion_cols = st.columns(len(suggestions))
+    for col, suggestion in zip(suggestion_cols, suggestions):
+        if col.button(suggestion, key=f"suggest_{category}_{suggestion}", use_container_width=True):
+            st.session_state.claim_form["value"] = suggestion
+            st.session_state["claim_value_input"] = suggestion
+            st.rerun()
+
 with st.form("claim_builder"):
-    category = st.selectbox(
-        "Category", options=CLAIM_CATEGORIES, index=CLAIM_CATEGORIES.index(st.session_state.claim_form["category"]),
-        help="What kind of record this claim is about.",
-    )
     assertion = st.selectbox(
         "Assertion", options=CLAIM_ASSERTIONS, index=CLAIM_ASSERTIONS.index(st.session_state.claim_form["assertion"]),
         help=(
@@ -255,7 +291,8 @@ with st.form("claim_builder"):
         ),
     )
     value = st.text_input(
-        "Value", value=st.session_state.claim_form["value"],
+        "Value", value=st.session_state.claim_form["value"], key="claim_value_input",
+        placeholder=CATEGORY_VALUE_HINTS.get(category, ""),
         help="Required for present/value/attribute claims. Optional for absent claims (blank = category-wide).",
     )
     attribute = attribute_value = ""
@@ -306,11 +343,13 @@ if submitted:
         else:
             st.header("5. Result")
             status = result["status"]
+            icon, alert_fn = STATUS_DISPLAY[status]
             status_row = st.container(border=True)
-            status_row.markdown(f"### Status: **{status}**")
-            status_row.caption(STATUS_EXPLANATIONS[status])
-            status_row.markdown(f"**Claim:** {result['claim']['text']}")
-            status_row.markdown(f"**Reason:** {result['reason']}")
+            with status_row:
+                alert_fn(f"{icon} **{status}**")
+                st.caption(STATUS_EXPLANATIONS[status])
+                st.markdown(f"**Claim:** {result['claim']['text']}")
+                st.markdown(f"**Reason:** {result['reason']}")
 
             st.subheader("Evidence used")
             if result["evidence"]:
@@ -354,6 +393,17 @@ st.markdown(
     "- [`docs/evidence-verification.md`](docs/evidence-verification.md) — the deterministic verifier\n"
     "- [`docs/safety-and-scope.md`](docs/safety-and-scope.md) — what MEVA is and is not\n"
     "- [`CONTRIBUTING.md`](CONTRIBUTING.md) — how to contribute"
+)
+
+# --- want to contribute? -------------------------------------------------
+
+st.header("Want to contribute?")
+st.markdown(
+    f"MEVA is open source. See "
+    f"[open issues / good first issues]({GITHUB_URL}/issues) and "
+    "[`CONTRIBUTING.md`](CONTRIBUTING.md) for a step-by-step guide, or "
+    "[`docs/contributor-issues.md`](docs/contributor-issues.md) for a list "
+    "of concretely scoped starter tasks."
 )
 
 # --- privacy -------------------------------------------------------------

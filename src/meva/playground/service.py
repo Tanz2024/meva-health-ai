@@ -76,6 +76,48 @@ def format_datetime_display(value: str | None) -> str:
         return value
 
 
+# Stage 8F claim-builder guidance: example VALUE text shown as a placeholder/hint,
+# derived from MEVA's own existing conventions (docs/claim-extraction-contract.md) —
+# not tied to any specific patient, and never implying a "correct" answer for the
+# currently selected patient.
+CATEGORY_VALUE_HINTS: dict[str, str] = {
+    "patient": "e.g. female",
+    "allergy": "e.g. Peanut (substance)",
+    "medication": "e.g. Amoxicillin 500 MG Oral Tablet",
+    "condition": "e.g. Essential hypertension (disorder)",
+    "observation": "e.g. Heart Rate: 72 /min",
+    "encounter": "e.g. Encounter for problem (procedure)",
+}
+
+
+def suggested_values(patient_id: str, category: str, limit: int = 5) -> list[str]:
+    """Real evidence values already visible in the sandbox's own Evidence Explorer
+    for this patient/category — offered as optional, educational suggestions only.
+
+    Never reveals anything beyond what RESOURCE_LOOKUPS[category] already returns
+    (the same data the Evidence Explorer tab already displays), never implies a
+    "correct" claim, and never leaks a hidden benchmark expectation — a visitor may
+    still type any other value in the claim builder.
+    """
+    lookup = RESOURCE_LOOKUPS.get(category)
+    if lookup is None:
+        return []
+
+    items = lookup(patient_id)
+    if category == "observation":
+        values = [observation_display_value(o) for o in items]
+    else:
+        values = [item.get("name") for item in items if item.get("name")]
+
+    seen: set[str] = set()
+    unique_values = []
+    for value in values:
+        if value and value not in seen:
+            seen.add(value)
+            unique_values.append(value)
+    return unique_values[:limit]
+
+
 def verify_claim(
     patient_id: str, category: str, assertion: str, value: str | None = None,
     attribute: str | None = None, attribute_value: str | None = None, text: str | None = None,
